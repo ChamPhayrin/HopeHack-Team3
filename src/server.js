@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 
 // About Us route
 app.get('/aboutus', (req, res) => {
-  res.render('aboutUs', {  // Render the 'aboutUs' view
+  res.render('aboutus', {  // Render the 'aboutUs' view
     title: 'About Us',  
   });
 });
@@ -52,7 +52,7 @@ app.get('/login', (req, res) => {
 
 // Sign-Up route
 app.get('/signup', (req, res) => {
-  res.render('signUp', {  // Render the 'signUp' view
+  res.render('signup', {  // Render the 'signUp' view
     title: 'Sign up',  
   });
 });
