@@ -32,42 +32,42 @@ app.use(express.static(publicDirectory));  // Serve static files like CSS, JS, a
 // Home route
 app.get('/', (req, res) => {
   res.render('index', {  // Render the 'index' view
-    title: 'Watch Tower',  
+    title: 'Muse',  
   });
 });
 
 // About Us route
 app.get('/aboutus', (req, res) => {
   res.render('aboutUs', {  // Render the 'aboutUs' view
-    title: 'Watch Tower',  
+    title: 'About Us',  
   });
 });
 
 // Login route
 app.get('/login', (req, res) => {
   res.render('login', {  // Render the 'login' view
-    title: 'Watch Tower',  
+    title: 'Login',  
   });
 });
 
 // Sign-Up route
 app.get('/signup', (req, res) => {
   res.render('signUp', {  // Render the 'signUp' view
-    title: 'Watch Tower',  
+    title: 'Sign up',  
   });
 });
 
 // Action route
-app.get('/action', (req, res) => {
-  res.render('action', {  // Render the 'action' view
-    title: 'Watch Tower',  
+app.get('/resources', (req, res) => {
+  res.render('resources', {  // Render the 'resources' view
+    title: 'Resources',  
   });
 });
 
 // Search route
-app.get('/search', (req, res) =>{
-  res.render('search', {  // Render the 'search' view
-    title: 'Watch Tower',  
+app.get('/explore', (req, res) =>{
+  res.render('explore', {  // Render the 'explore' view
+    title: 'Explore',  
   });
 })
 
