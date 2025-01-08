@@ -7,18 +7,25 @@ header {
   height: 500px;
 
   nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
 
   .nav-wrapper {
-    width: 100%;
-    // max-width: 1200px;
-    padding: 20px;
-    margin: 0;
+    max-width: 1200px;
+    padding: 10px;
+    margin: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: blue;
     border-radius: 5px;
+
+    & {
+      margin-top: 30px;
+    }
 
     .brand-logo {
       display: flex;

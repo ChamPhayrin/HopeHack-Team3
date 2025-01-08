@@ -7,16 +7,23 @@ header {
   height: 500px;
 }
 header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 header .nav-wrapper {
-  width: 100%;
-  padding: 20px;
-  margin: 0;
+  max-width: 1200px;
+  padding: 10px;
+  margin: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: blue;
   border-radius: 5px;
+}
+header .nav-wrapper {
+  margin-top: 30px;
 }
 header .nav-wrapper .brand-logo {
   display: flex;
@@ -141,7 +148,6 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 100%;
   text-align: center;
   position: absolute;
 }
