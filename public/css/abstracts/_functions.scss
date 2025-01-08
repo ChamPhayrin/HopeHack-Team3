@@ -1,6 +1,0 @@
-@use 'sass:math';
-
-//To use write: 'toRem(number)
-@function toRem($pxValue) { //Returns px in rem for responsive design
-    @return math.div($pxValue, 16) * 1rem; 
-}
