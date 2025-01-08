@@ -1,0 +1,149 @@
+// Variables for colors and spacing
+$footer-bg-color: #f4f4f4;
+$link-color: #333;
+$link-hover-color: #007bff;
+$padding: 20px;
+$gap: 15px;
+$font-size: 16px;
+$font-size-lg: 18px;
+$font-size-sm: 14px;
+$font-weight-bold: 700;
+
+// Footer Styling
+footer {
+  background-color: $footer-bg-color;
+  padding: $padding;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+}
+
+// Navigation section
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $link-color;
+    text-decoration: none;
+  }
+
+  .footer-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+
+    li {
+      a {
+        display: block;
+        width: 30px;
+        height: 30px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+// Section 2: Information Section
+.section2 {
+  p {
+    font-size: $font-size;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Section 3: Additional Links
+.section3 {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: $gap;
+    flex-wrap: wrap;
+
+    li {
+      a {
+        text-decoration: none;
+        color: $link-color;
+        font-size: $font-size-sm;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: $link-hover-color;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+// Section 4: Legal/Policy Section
+.section4 {
+  p {
+    font-size: $font-size-sm;
+    color: #777;
+    line-height: 1.6;
+  }
+}
+
+// Section 5: Privacy and Other Policy Links
+.section5 {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: $gap;
+
+    li {
+      font-size: $font-size-sm;
+      color: #555;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: $link-color;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $link-hover-color;
+        }
+      }
+    }
+  }
+}
+
+// Footer links - text decoration, hover effects
+footer a {
+  text-decoration: none;
+  color: $link-color;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
