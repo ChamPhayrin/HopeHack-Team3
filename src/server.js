@@ -3,6 +3,8 @@ const path = require('path');
 const express = require('express');  
 const dotenv = require('dotenv');  
 const hbs = require('hbs');  
+const getArtwork = require('./utils/getArt'); 
+const getHistoricalEvents = require('./utils/getEvents'); 
 
 // Load variables from the .env file
 dotenv.config();
@@ -60,6 +62,39 @@ app.get('/action', (req, res) => {
   res.render('action', {  // Render the 'action' view
     title: 'Watch Tower',  
   });
+});
+
+// Search route
+app.get('/search', (req, res) =>{
+  res.render('search', {  // Render the 'search' view
+    title: 'Watch Tower',  
+  });
+})
+
+// Query route
+app.get('/q', async (req, res) => {
+  const q = req.query.q;
+
+  if (!q) {
+    return res.status(400).send('Error: Search query is required');
+  }
+
+  try {
+    // Fetch artworks
+    const artworks = await getArtwork(q);
+    
+    // Get the number of artworks to fetch that many historical events
+    const events = await getHistoricalEvents(q, artworks.length);
+
+    // Return both the artworks and historical events
+    return res.json({
+      artworks,
+      historicalEvents: events
+    });
+  } catch (error) {
+    console.error("Error:", error);
+    return res.status(500).send("Error fetching data");
+  }
 });
 
 // Non-existing routes
