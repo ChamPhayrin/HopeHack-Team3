@@ -1,4 +1,86 @@
-.abtUs-hero {
-  height: 400px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Main Container */
+.abtUs-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+  padding-top: 20%;
+  padding-bottom: 5%;
+  border-radius: 2%;
+  overflow: hidden;
+}
+
+/* About Us Content */
+.abtUs-article {
+  margin-bottom: 40px;
+}
+
+.abtUs-heading--mission,
+.abtUs-heading--vision {
+  font-size: 3.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.abtUs-text {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  text-align: left;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Soft shadow to make text pop */
+}
+
+.abtUs-slideshow {
+  display: flex;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns in the grid */
+  gap: 20px; /* Add space between items */
+  margin: 0 auto;
+  max-width: 1200px; /* Optional: limit the width */
+  padding: 20px;
+  justify-items: center; /* Centers the items horizontally */
+}
+.abtUs-slide {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
   text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Optional: smooth hover effect */
+}
+.abtUs-slide img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+img.abt-muse {
+  background-color: #545454;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.round {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
