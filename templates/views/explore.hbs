@@ -5,34 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
   <link rel="stylesheet" href="./css/pages/explore.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <script src="https://kit.fontawesome.com/5e3005e55e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav>
-
-  </nav>
+  {{!-- {{>navbar}} --}}
   <main id="container-explore">
-    <section class="container-card">
-      <div class = "card">
-        <img src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80" alt="">
-        <div class="card-content">
-          <h2>
-            Card Heading
-          </h2>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste, voluptatum, quia explicabo laboriosam rem adipisci voluptates cumque, veritatis atque nostrum corrupti ipsa asperiores harum? Dicta odio aut hic.
-          </p>
-          <a href="#" class="button">
-            Find out more 
-            <span class="material-symbols-outlined">
-              arrow_right_alt
-            </span>
-          </a>
-        </div>
+    <div class="search-container .fade-in-fwd">
+      <div class="search-title">
+        <h2 id="search-title">
+        </h2>
       </div>
+      <form class="search"  id="search-form">
+        <input class="search-input" type="text" placeholder="Search" id="search-input">
+        <button type="submit" class="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </div>
+    <section class="container-error hidden fade-in-fwd" id="container-error">
+      <h3 id="error">ERROR:</h3>
+    </section>
+    <section class="container-card" id="container-card">
+      <h1>
+      </h1>
     </section>
   </main>
-  <footer>
-    
-  </footer>
+  {{!-- {{>footer}} --}}
+  <script type="module" src="./js/explore.js"></script>
 </body>
 </html>
