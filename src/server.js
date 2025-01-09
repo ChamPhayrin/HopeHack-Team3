@@ -33,6 +33,7 @@ app.use(express.static(publicDirectory));  // Serve static files like CSS, JS, a
 app.get('/', (req, res) => {
   res.render('index', {  // Render the 'index' view
     title: 'Muse',  
+    description: 'Welcome to Muse, where we challenge the growing influence of AI in the art world. Explore the rich history of human-created art and learn how AI is erasing traditional craftsmanship, overshadowing human creativity, and threatening the preservation of our artistic heritage.'
   });
 });
 
@@ -40,6 +41,7 @@ app.get('/', (req, res) => {
 app.get('/aboutus', (req, res) => {
   res.render('aboutus', {  // Render the 'aboutUs' view
     title: 'About Us',  
+    description: "Muse is committed to raising awareness about how AI is threatening the authenticity and legacy of human-made art. We believe that AI-driven art not only erases the value of history but also undermines the very essence of creative expression by displacing traditional artists."
   });
 });
 
@@ -47,6 +49,7 @@ app.get('/aboutus', (req, res) => {
 app.get('/login', (req, res) => {
   res.render('login', {  // Render the 'login' view
     title: 'Login',  
+    description: "Log in to ArtFuture to join the conversation on how AI is undermining the legacy of human-made art. If you're new, sign up to start learning about the dangers of AI-driven art and why it’s crucial to preserve our artistic history."
   });
 });
 
@@ -54,6 +57,7 @@ app.get('/login', (req, res) => {
 app.get('/signup', (req, res) => {
   res.render('signup', {  // Render the 'signUp' view
     title: 'Sign up',  
+    description: "Sign up to become part of Muse's community that’s fighting to protect human creativity from the rise of AI in art. Gain access to discussions, resources, and tools dedicated to preserving the integrity of traditional art forms and the artists who created them."
   });
 });
 
@@ -61,6 +65,7 @@ app.get('/signup', (req, res) => {
 app.get('/resources', (req, res) => {
   res.render('resources', {  // Render the 'resources' view
     title: 'Resources',  
+    description: "Our resource library dives deep into the harmful impact AI is having on the art world. From the displacement of traditional artists to the erasure of historical techniques, we provide critical information to raise awareness about the threats to art history posed by AI."
   });
 });
 
@@ -68,6 +73,7 @@ app.get('/resources', (req, res) => {
 app.get('/explore', (req, res) =>{
   res.render('explore', {  // Render the 'explore' view
     title: 'Explore',  
+    description: 'Browse Search for artworks from the Art Institute of Chicago’s collection and view key details like title, artist, and description. Descriptions are cleaned for clarity, and each artwork is displayed with a high-quality image. Explore the richness of human-made art while considering how AI is transforming the creative landscape. art that represents the legacy of human creativity and the ongoing battle against AI’s intrusion into the art world. Use our search tools to uncover how AI-generated art lacks the depth and humanity of traditional masterpieces, and see why preserving human-created art is more urgent than ever.'
   });
 })
 
@@ -76,7 +82,7 @@ app.get('/q', async (req, res) => {
   const q = req.query.q;
 
   if (!q) {
-    return res.status(400).send('Error: Search query is required');
+    return res.send('Error: Search query is required');
   }
 
   try {
