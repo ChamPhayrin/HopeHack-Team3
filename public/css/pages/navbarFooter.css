@@ -212,6 +212,9 @@ header .nav-wrapper .nav-links a {
 }
 
 @media (max-width: 768px) {
+  header {
+    height: 45rem;
+  }
   /* Show Hamburger Menu */
   .hamburger-menu {
     display: flex;
