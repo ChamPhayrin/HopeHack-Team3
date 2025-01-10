@@ -37,6 +37,7 @@ header{
   cursor: pointer;
   position: relative;
   color: var(--color-primary);
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
