@@ -1,7 +1,7 @@
 <header>
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
+      <a href="#" class="brand-logo"><img src="/img/mLogo.png" alt="" /></a>
 
       <div class="hamburger-menu" id="hamburger-menu">
         <span></span>
@@ -14,17 +14,35 @@
         <li><a href="#">Call to Action</a></li>
         <li><a href="#">About Us</a></li>
         <li><a href="#">Contact</a></li>
-        <li><button>Join</button></li>
-        <li><button>Log In</button></li>
+        <li id="profile-icon">
+          <i class="fa-regular fa-user"></i>
+        </li>
       </ul>
     </div>
   </nav>
   <ul class="side-nav" id="'side-nav">
-    <li><a href="#">Map</a></li>
-    <li><a href="#">Call to Action</a></li>
+    <li><a href="#">Explore</a></li>
+    <li><a href="#">Resources</a></li>
     <li><a href="#">About Us</a></li>
     <li><a href="#">Contact</a></li>
-    <li><button>Join</button></li>
-    <li><button>Log In</button></li>
+    <li id="profile-icon">
+      <i class="fa-regular fa-user"></i>
+    </li>
   </ul>
+
+  <div id="profile-modal" class="modal">
+    <div class="modal-content">
+      <h3>Welcome! Please choose an option:</h3>
+      <button id="join-btn">Join</button>
+      <button id="login-btn">Login</button>
+    </div>
+  </div>
+
+  <nav class="nav-text">
+    <h1>{{title}}</h1>
+    <p>
+      {{description}}
+    </p>
+    <button><a href="">Find Out More</a></button>
+  </nav>
 </header>
