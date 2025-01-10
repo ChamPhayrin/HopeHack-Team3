@@ -27,7 +27,8 @@ hbs.registerPartials(partialsPath);  // Register partials for reusable parts lik
 
 // SET UP STATIC DIRECTORY TO SERVE
 app.use(express.static(publicDirectory));  // Serve static files like CSS, JS, and images from the public folder
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // ROUTES
 
 // Home route
@@ -112,16 +113,30 @@ app.get('/q', async (req, res) => {
   }
 });
 
-app.post('/signup',(req, res)=>{
-  const {firstName, lastName, email, password} = req.body
+app.post('/register',(req, res)=>{
+  const {firstname, lastname, email, password, repeatPassword} = req.body
+
+  if(password != repeatPassword) {
+    return res.send({error: 'Password do not match!'})
+  }
   
   const insertQ = "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
 
-  const values = [firstName, lastName, email, password];
+  const selectEmailQ = `SELECT email FROM users WHERE email = '${email}'`
 
-  connection.query(insertQ, values, (err, result) => {
-      if (err) throw err;
-      console.log('1 Record inserted');
+  const values = [firstname, lastname, email, password];
+
+
+  connection.query(selectEmailQ, (err, result) => {
+    if (err) throw err;
+    if (result.length > 0) {
+      return res.send({error: 'Email in use!'})
+    } else{
+      connection.query(insertQ, values, (err, result) => {
+        if (err) throw err;
+        res.redirect('/login')
+    })
+    }
   })
 
 })
