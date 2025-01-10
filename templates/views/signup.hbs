@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../css/pages/signup.css">
+    <link rel="icon" href="/img/logo.png">
+    <title>Join Us</title>
+</head>
+<body>
+    <div class="container-wrapper">
+        <a href="/"><img id="logo" src="/img/logo.png" alt="Muse logo"></a> 
+        <h1 class="mainTitle">Join Us</h1>
+        <p id="errorMessage"></p>
+        <form id="formContainer">
+            <div>
+                <label for="firstNameInput">
+                    <i class="fa-solid fa-user"></i>
+                </label>
+                <input type="text" name="firstname" id="firstNameInput" placeholder="First name">
+            </div>
+            <div>
+                <label for="lastNameInput">
+                    <i class="fa-solid fa-user"></i>
+                </label>
+                <input type="text" name="lastname" id="lastNameInput" placeholder="Last name">
+            </div>
+            <div>
+                <label for="emailInput">
+                    <span>@</span>
+                </label>
+                <input type="email" name="email" id="emailInput" placeholder="Email">
+            </div>
+            <div>
+                <label for="passwordInput">
+                    <i class="fa-solid fa-lock-open"></i>
+                </label>
+                <input type="password" name="password" id="passwordInput" placeholder="Password">
+            </div>
+            <div>
+                <label for="repeatPasswordInput">
+                    <i class="fa-solid fa-lock"></i>
+                </label>
+                <input type="password" name="repeatPassword" id="passwordInput" placeholder="Repeat Password">
+            </div>
+            <button class="mainBtn" type="submit">Join</button>
+        </form>
+        <p>Already have an Account? <a id="linkTxt" href="login">Login</a></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
