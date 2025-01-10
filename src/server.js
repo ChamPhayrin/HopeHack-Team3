@@ -78,6 +78,14 @@ app.get('/explore', (req, res) =>{
   });
 })
 
+// Contact route
+app.get('/contactus', (req, res) =>{
+  res.render('contactus', {  // Render the 'explore' view
+    title: 'Contact Us',  
+    description: 'Browse Search for artworks from the Art Institute of Chicago’s collection and view key details like title, artist, and description. Descriptions are cleaned for clarity, and each artwork is displayed with a high-quality image. Explore the richness of human-made art while considering how AI is transforming the creative landscape. art that represents the legacy of human creativity and the ongoing battle against AI’s intrusion into the art world. Use our search tools to uncover how AI-generated art lacks the depth and humanity of traditional masterpieces, and see why preserving human-created art is more urgent than ever.'
+  });
+})
+
 // Query route
 app.get('/q', async (req, res) => {
   const q = req.query.q;
