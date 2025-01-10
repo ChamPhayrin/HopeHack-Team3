@@ -14,7 +14,6 @@ header {
   flex-direction: column;
   padding: 3rem;
   height: 500px;
-  background-image: url("/img/istockphoto-1453838542-1024x1024.jpg") !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
