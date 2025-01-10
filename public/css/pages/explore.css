@@ -5,6 +5,11 @@
   --color-overlay: rgba(0, 0, 0, 0.5);
   --color-btn-bg: #739596;
 }
+
+header{
+  background-image: url("/img/exploreBanner.avif") !important;
+}
+
 /* CARD */
 #container-explore {
   display: flex;
@@ -27,7 +32,7 @@
 
 .card {
   width: 100%;
-  height: 28rem;
+  height: 24rem;
   overflow: hidden;
   cursor: pointer;
   position: relative;
@@ -182,12 +187,15 @@
 
 @media (max-width: 768px) {
   .container-card {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 33% 33% 33%;
   }
 }
 
 @media (max-width: 425px) {
+  .container-card {
+    display: flex;
+    flex-direction: column;
+  }
   .search-container {
     display: flex;
     flex-direction: column-reverse;
@@ -200,7 +208,7 @@
   }
   .search-title {
     text-align: start;
-    width: 60%;
+    width: 100%;
   }
   .card p {
     inset: auto auto 5% 30px;

@@ -40,7 +40,7 @@ function fetchArtworks(searchValue, cardContainer, searchTitle, error) {
 // Function to handle displaying artwork results
 function displayResults(artworks, cardContainer, searchTitle, error, searchValue) {
   error.classList.add('hidden');  // Hide error message (or loading animation) after fetching
-  searchTitle.innerHTML = capitalize(searchValue);
+  searchTitle.innerHTML = searchValue.toUpperCase();
   cardContainer.classList.remove('hidden');
   cardContainer.innerHTML = '';
 
@@ -65,12 +65,6 @@ function showError(error, cardContainer, searchTitle, message) {
   cardContainer.classList.add('hidden');
   searchTitle.innerHTML = '';
   error.innerHTML = message;
-}
-
-// Capitalize first letter of a string
-function capitalize(text) {
-  if (text.length === 0) return text;
-  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 }
 
 // Handle form submit
@@ -105,7 +99,7 @@ window.addEventListener('load', () => {
   const cardContainer = document.getElementById('container-card');
   const searchTitle = document.getElementById('search-title');
   const error = document.getElementById('container-error');
-  const defaultSearchValue = 'Salvador Dalí';
+  const defaultSearchValue = 'MUSE';
 
   fetchArtworks(defaultSearchValue, cardContainer, searchTitle, error);
 });
