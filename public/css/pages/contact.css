@@ -13,3 +13,134 @@ body {
   background-position: right;
   overflow: hidden;
 }
+
+.con-wrapper {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: white;
+  height: 100vh;
+  padding: 10px;
+  width: max(48%, 600px);
+  border-radius: 0 40px 40px 0;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.conTitle {
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+#conContainer > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#conContainer label {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  background-color: #739596;
+  fill: #ffffff;
+  color: rgb(255, 255, 255);
+  border-radius: 10px 0 0 10px;
+}
+#conContainer input {
+  flex-grow: 1;
+  box-sizing: border-box;
+  font: inherit;
+  min-width: 0;
+  height: 50px;
+  padding: 1em;
+  border-left: none;
+  border: 2px solid #b1cccc7a;
+  border-radius: 0 10px 10px 0;
+  background-color: #b1cccc7a;
+  transition: 150ms ease;
+}
+#conContainer input:focus {
+  outline: none;
+  border-color: #3d3d3d;
+}
+
+#conContainer input:hover {
+  border-color: #739596;
+}
+
+#conContainer input::placeholder {
+  color: #2e2b41;
+}
+.conBtn {
+  cursor: pointer;
+  border: none;
+  border-radius: 1000px;
+  margin-top: 10px;
+  padding: 0.85em 4em;
+  background-color: #739596;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 150ms ease;
+}
+
+.conBtn:hover {
+  background-color: #3d3d3d;
+}
+
+.conBtn:focus {
+  outline: none;
+  background-color: #3d3d3d;
+}
+
+#linkTxt {
+  text-decoration: none;
+  color: #739596;
+}
+
+#linkTxt:hover {
+  text-decoration: underline;
+}
+
+#logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .container-wrapper {
+    width: 100%;
+    border-radius: 0;
+  }
+  #logo {
+    width: 120px; /* Adjust logo size on smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 12pt;
+
+    .mainTitle {
+      font-size: 2rem;
+    }
+
+    #formContainer input {
+      height: 45px;
+    }
+
+    .mainBtn {
+      padding: 0.85em 3em;
+    }
+  }
+}
