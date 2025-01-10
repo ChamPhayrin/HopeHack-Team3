@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const hbs = require('hbs');  
 const getArtwork = require('./utils/getArt'); 
 const getHistoricalEvents = require('./utils/getEvents'); 
+const connection = require('../dbconfig.js')
 
 // Load variables from the .env file
 dotenv.config();
@@ -103,12 +104,28 @@ app.get('/q', async (req, res) => {
   }
 });
 
+app.post('/signup',(req, res)=>{
+  const {firstName, lastName, email, password} = req.body
+  
+  const insertQ = "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
+
+  const values = [firstName, lastName, email, password];
+
+  connection.query(insertQ, values, (err, result) => {
+      if (err) throw err;
+      console.log('1 Record inserted');
+  })
+
+})
+
 // Non-existing routes
 app.get('*', (req, res) => {
   res.render('404', {  // Render the '404' view 
     title: 'Page Not Found',  
   });
 });
+
+
 
 // CHECK SERVER IS UP
 app.listen(port, () => { 
