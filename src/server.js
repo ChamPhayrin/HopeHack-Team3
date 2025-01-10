@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const hbs = require('hbs');  
 const getArtwork = require('./utils/getArt'); 
 const getHistoricalEvents = require('./utils/getEvents'); 
+const connection = require('../dbconfig.js')
 
 // Load variables from the .env file
 dotenv.config();
@@ -26,7 +27,8 @@ hbs.registerPartials(partialsPath);  // Register partials for reusable parts lik
 
 // SET UP STATIC DIRECTORY TO SERVE
 app.use(express.static(publicDirectory));  // Serve static files like CSS, JS, and images from the public folder
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // ROUTES
 
 // Home route
@@ -77,6 +79,14 @@ app.get('/explore', (req, res) =>{
   });
 })
 
+// Contact route
+app.get('/contactus', (req, res) =>{
+  res.render('contactus', {  // Render the 'explore' view
+    title: 'Contact Us',  
+    description: 'Browse Search for artworks from the Art Institute of Chicago’s collection and view key details like title, artist, and description. Descriptions are cleaned for clarity, and each artwork is displayed with a high-quality image. Explore the richness of human-made art while considering how AI is transforming the creative landscape. art that represents the legacy of human creativity and the ongoing battle against AI’s intrusion into the art world. Use our search tools to uncover how AI-generated art lacks the depth and humanity of traditional masterpieces, and see why preserving human-created art is more urgent than ever.'
+  });
+})
+
 // Query route
 app.get('/q', async (req, res) => {
   const q = req.query.q;
@@ -103,12 +113,42 @@ app.get('/q', async (req, res) => {
   }
 });
 
+app.post('/register',(req, res)=>{
+  const {firstname, lastname, email, password, repeatPassword} = req.body
+
+  if(password != repeatPassword) {
+    return res.send({error: 'Password do not match!'})
+  }
+  
+  const insertQ = "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
+
+  const selectEmailQ = `SELECT email FROM users WHERE email = '${email}'`
+
+  const values = [firstname, lastname, email, password];
+
+
+  connection.query(selectEmailQ, (err, result) => {
+    if (err) throw err;
+    if (result.length > 0) {
+      return res.send({error: 'Email in use!'})
+    } else{
+      connection.query(insertQ, values, (err, result) => {
+        if (err) throw err;
+        res.redirect('/login')
+    })
+    }
+  })
+
+})
+
 // Non-existing routes
 app.get('*', (req, res) => {
   res.render('404', {  // Render the '404' view 
     title: 'Page Not Found',  
   });
 });
+
+
 
 // CHECK SERVER IS UP
 app.listen(port, () => { 
