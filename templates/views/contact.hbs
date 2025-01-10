@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../css/pages/contact.css" />
+    <link rel="icon" href="/img/logo.png" />
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <div class="con-wrapper">
+      <a href="/"><img id="img/log.png" alt="Muse logo" /></a>
+      <h1 class="conTitle">Contact Us</h1>
+      <p id="conError"></p>
+      <form id="conContainer">
+        <div>
+          <label for="nameInput">
+            <i class="fa-solid fa-user"></i>
+          </label>
+          <input type="text" name="name" id="conName" placeholder="Full Name" />
+        </div>
+        <div>
+          <label for="emailInput">
+            <span>@</span>
+          </label>
+          <input type="email" name="email" id="conEmail" placeholder="Email" />
+        </div>
+        <div>
+          <label for="messageInput">
+            <i class="fa-solid fa-comment"></i>
+          </label>
+          <textarea
+            name="message"
+            id="conMsg"
+            placeholder="Your message"
+          ></textarea>
+        </div>
+        <button class="conBtn" type="submit">Send Message</button>
+      </form>
+      <p>Got back to <a id="linkTxt" href="/">Home</a></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

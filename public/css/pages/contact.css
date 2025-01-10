@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  font-size: 12pt;
+  color: #2e2b41;
+  text-align: center;
+  min-height: 100vh;
+  background-color: #658485;
+  background-position: right;
+  overflow: hidden;
+}
