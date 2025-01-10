@@ -4,82 +4,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us</title>
     <link rel="stylesheet" href="./css/aboutUs.css" />
+      <link rel="stylesheet" href="../css/pages/navbarFooter.css">
   </head>
   <body>
  
-{{!-- 
-    <!-- Main Content section-->
-<main class="abtUs-container">
-<!--About us section-->
-<section class="abtUs-section abtUs-sec">
-   <img class="abt-muse" src="/images/wmuse.png"alt="logo"/>
-    <h1 class="abtUs-heading">About Us</h1>
-    <p class="abtUs-text">Learn more about who we are and what we do.</p>
-</section> --}}
-
+{{>navbar}}
 
       <!-- About Us Content -->
-   <section class="abtUs-content">
-      <article class="abtUs-article">
+   <section class="abtUs-top">
+      <article id="abtUs-article-">
         <h2 class="abtUs-heading abtUs-heading--mission">Our Mission</h2>
-        <p class="abtUs-text">
+        <p class="abtUs-text_top">
             At Muse, we believe that art is not just a reflection of culture, but also a powerful lens through which we understand history, identity, and innovation. Our mission is to educate users on the importance of art and art history, while exploring how emerging technologies especially artificial intelligence are reshaping our perception of authenticity and creativity. Through our platform, we aim to spark curiosity, promote critical thinking, and inspire deeper engagement with the world of art.
         </p>
       </article>
-<!-- Slideshow Section -->
+<!--Img Section -->
 <div class="abtUs-slideshow">
   <!-- Slide 1 -->
   <div class="abtUs-slide">
     <img class="round" src="/images/ismael.png" alt="user" />
-    <h3>Ismael</h3>
-    <h6>Charlotte NC</h6>
-    <p>CEO<br/> </p>
+    <h1>Ismael</h1>
+    <h4>Charlotte NC</h4>
+    <p>CEO </p>
   </div>
   <!-- Slide 2 -->
   <div class="abtUs-slide">
     <img class="round" src="/images/cham.jpeg" alt="user" />
-    <h3>Chamngary</h3>
-    <h6>Charlotte NC</h6>
-    <p>Employee<br/> </p>     
+    <h1>Chamngary</h1>
+    <h4>Charlotte NC</h4>
+    <p>Employee</p>     
   </div>
 
   <!-- Slide 3 -->
   <div class="abtUs-slide">
     <img class="round" src="/images/angel.jpeg" alt="user" />
-    <h3>Angel</h3>
-    <h6>Charlotte NC</h6>
-    <p>Employee<br/> </p>
+    <h1>Angel</h1>
+    <h4>Charlotte NC</h4>
+    <p>Employee</p>
   </div>
 
   <!-- Slide 4 -->
   <div class="abtUs-slide">
     <img class="round" src="/images/jared.jpeg" alt="user" />
-    <h3>Jared</h3>
-    <h6>Charlotte NC</h6>
-    <p>Employee<br/> </p>
+    <h1>Jared</h1>
+    <h4>Charlotte NC</h4>
+    <p>Employee </p>
   </div>
 
   <!-- Slide 5 -->
   <div class="abtUs-slide">
     <img class="round" src="/images/itaty.jpeg" alt="user" />
-    <h3>Itaty</h3>
-    <h6>Charlotte NC</h6>
-    <p>Employee<br/> </p>
+    <h1>Itaty</h1>
+    <h4>Charlotte NC</h4>
+    <p>Employee</p>
   </div>
 </div>
 
 
-
-      <article class="abtUs-article">
+<section class="abtUs-bottom">
+      <article id="abtUs-article">
         <h2 class="abtUs-heading abtUs-heading--vision">Our Vision</h2>
-        <p class="abtUs-text"> 
+        <p class="abtUs-text_bottom"> 
             In an era where artificial intelligence is rapidly advancing, its ability to imitate and even recreate art challenges our understanding of what is "real" and "fake." As AI becomes more sophisticated, its capability to replicate the styles of past masters and generate new forms of art blurs the lines between originality and imitation. At Muse, we see this as an opportunity to explore how AI is not only transforming the art world, but also how it  Our vision is to create an experience where users can explore art history, learn about art, and also understand the evolving relationship between art, technology, and society.
+    </div>
       </article>
     </section>
   </main>
 
     <!-- Footer Section -->
-
+{{>footer}}
     <script src="scripts.js"></script>
+   
   </body>
 </html>
