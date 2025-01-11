@@ -116,6 +116,11 @@ app.get('/q', async (req, res) => {
 app.post('/register',(req, res)=>{
   const {firstname, lastname, email, password, repeatPassword} = req.body
 
+  if(!password) return res.send({error: 'Please enter password'});
+  if(!email) return res.send({error: 'Please enter email'});
+  if(!firstname) return res.send({error: 'Please enter first name'});
+  if(!lastname) return res.send({error: 'Please enter last name'});
+
   if(password != repeatPassword) {
     return res.send({error: 'Password do not match!'})
   }
@@ -139,6 +144,30 @@ app.post('/register',(req, res)=>{
     }
   })
 
+})
+
+app.post('/signin', (req, res) =>{
+  const {email, password} = req.body
+
+  if(!password) return res.send({error: 'Please enter password'});
+  if(!email) return res.send({error: 'Please enter email'});
+
+  const selectEmailQ = `SELECT email, password, first_name, last_name, user_id FROM users WHERE email = '${email}'`
+
+  connection.query(selectEmailQ, (err, result) =>{
+    if (err) throw err;
+
+    if (result.length > 0) {
+      if(password !== result[0].password){
+        return res.send({error: 'Password is incorrect'})
+      } else {
+        return res.send({userData: result[0]})
+      }
+    } else{
+      return res.send({error: 'No account with email provided'})
+    }
+
+  })
 })
 
 // Non-existing routes
