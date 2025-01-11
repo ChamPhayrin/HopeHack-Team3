@@ -82,12 +82,19 @@ header {
 }
 
 .card h6 {
-  inset: auto auto 0 0;
+  inset: auto auto 0 0; 
+  max-height: 4%;
   font-family: var(--text-primary);
   font-weight: normal;
   color: var(--color-primary);
   background-color: var(--color-overlay);
   color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  line-height: 2.5;
 }
 
 .card p {
@@ -97,6 +104,8 @@ header {
   color: var(--color-text);
   max-height: 90%;
   overflow-y: scroll;
+  line-height: 1.5;
+  letter-spacing: 1px;
 }
 
 .card::after {

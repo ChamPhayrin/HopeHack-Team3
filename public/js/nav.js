@@ -43,14 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Optional: Handle Join and Login button clicks
-  joinBtn.addEventListener("click", function () {
-    alert("Join button clicked.");
-    modal.style.display = "none"; // Hide the modal after clicking
-  });
+  //   // Optional: Handle Join and Login button clicks
+  //   joinBtn.addEventListener("click", function () {
+  //     alert("Join button clicked.");
+  //     modal.style.display = "none"; // Hide the modal after clicking
+  //   });
 
-  loginBtn.addEventListener("click", function () {
-    alert("Login button clicked.");
-    modal.style.display = "none"; // Hide the modal after clicking
-  });
+  //   loginBtn.addEventListener("click", function () {
+  //     alert("Login button clicked.");
+  //     modal.style.display = "none"; // Hide the modal after clicking
+  //   });
 });
