@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="contactus.css" />
+    <link rel="stylesheet" href="/../css/pages/contactus.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -17,9 +17,8 @@
     <title>Contact Us</title>
   </head>
   <body>
-    {{navbar}}
     <div class="con-wrapper">
-      <a href="/"><img id="img/log.png" alt="Muse logo" /></a>
+      <a href="/"><img id="logo" src="/images/mLogo.png" alt="Muse logo" /></a>
       <h1 class="conTitle">Contact Us</h1>
       <p id="conError"></p>
       <form id="conContainer">
@@ -48,7 +47,7 @@
         <button class="conBtn" type="submit">Send Message</button>
       </form>
       <p>Got back to <a id="linkTxt" href="/">Home</a></p>
-      {{footer}}
+
     </div>
     <script src="contact.js"></script>
   </body>

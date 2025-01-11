@@ -11,36 +11,34 @@ header {
 /* About Us Content */
 #abtUs-article- {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 2%;
-  display: flex; /* Enables flexbox layout */
   flex-wrap: wrap; /* Stack header and text vertically */
   gap: 20px;
-  align-items: center;
 }
 
 /* Image styling */
 .abtUs-water {
-  max-width: 500px;
+  max-width: 460px;
   height: auto;
   border-radius: 3px;
-  margin-left: 9%;
-  left: 60%;
+  align-self: flex-start;
 }
 
 .abtUs-heading--mission {
   margin-left: 10%;
-  font-size: 3rem;
+  font-size: 4rem;
   color: #333;
   margin-bottom: 2%;
   margin-top: 5%;
 }
 .abtUs-text_top {
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   max-width: 60%;
-  word-wrap: break-word;
   color: #555;
   line-height: 1.8;
   margin-right: 3%;
@@ -48,7 +46,7 @@ header {
 
 .abtUs-text_bottom {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   max-width: 80%;
   word-wrap: break-word;
   color: #555;
@@ -59,13 +57,13 @@ header {
 
 .abtUs-heading--vision {
   text-align: center;
-  font-size: 3rem;
+  font-size: 4rem;
   color: #333;
   margin-bottom: 30px;
 }
 .abtH {
   text-align: center;
-  font-size: 3rem;
+  font-size: 4rem;
   margin-top: 10%;
 }
 .abtUs-slideshow {
@@ -91,7 +89,7 @@ header {
   height: auto;
   margin: 20px;
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
   /* max-width: 200px; */
 }
 .abtUs-slide:hover {
@@ -131,8 +129,15 @@ header {
   }
   .abtUs-water {
     max-width: 80%; /* Reduce image width on small screens */
-    margin-left: 0; /* Center image horizontally on small screens */
+    margin-left: 10%; /* Center image horizontally on small screens */
     margin-right: 0;
     margin-top: 10px; /* Add some space from the top */
+  }
+  .abtUs-text_top {
+    text-align: center;
+    margin-left: 20%;
+  }
+  .abtUs-heading--mission {
+    text-align: center;
   }
 }

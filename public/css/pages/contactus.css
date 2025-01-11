@@ -12,6 +12,9 @@ body {
   background-color: #658485;
   background-position: right;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .con-wrapper {
@@ -22,10 +25,18 @@ body {
   height: 100vh;
   padding: 10px;
   width: max(48%, 600px);
-  border-radius: 0 40px 40px 0;
+  border-radius: 40px 40px 40px 40px;
   align-items: center;
   justify-content: center;
   position: relative;
+}
+#logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: auto;
+  cursor: pointer;
 }
 .conTitle {
   text-transform: uppercase;
@@ -37,6 +48,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 10%;
+  gap: 15px;
 }
 #conContainer label {
   font-size: 1.5rem;
@@ -108,25 +121,26 @@ body {
   text-decoration: underline;
 }
 
-#logo {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 150px;
-  height: auto;
-  cursor: pointer;
-}
-
 @media (max-width: 1100px) {
   .container-wrapper {
     width: 100%;
     border-radius: 0;
   }
   #logo {
-    width: 120px; /* Adjust logo size on smaller screens */
+    width: 90px; /* Adjust logo size on smaller screens */
   }
 }
-
+#conMsg {
+  width: 100%;
+  height: 150px;
+  padding: 3rem;
+  font-size: 1.2rem;
+  border: 2px solid #b1cccc7a;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  resize: vertical;
+}
 @media (max-width: 600px) {
   body {
     font-size: 12pt;
