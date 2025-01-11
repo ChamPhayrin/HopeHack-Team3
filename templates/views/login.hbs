@@ -14,8 +14,7 @@
     <div class="container-wrapper">
         <a href="/"><img id="logo" src="/img/logo.png" alt="Muse logo"></a> 
         <h1 class="mainTitle">Login</h1>
-        <p id="errorMessage"></p>
-        <form id="formContainer">
+        <form class="formContainer" id="form">
             <div>
                 <label for="emailInput">
                     <span>@</span>
@@ -30,8 +29,9 @@
             </div>
             <button class="mainBtn" type="submit">Login</button>
         </form>
+        <p id="errorMessage"></p>
         <p>Don't have an account? <a id="linkTxt" href="signup">Join Us</a></p>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="./js/login.js"></script>
 </body>
 </html>
