@@ -14,8 +14,7 @@
     <div class="container-wrapper">
         <a href="/"><img id="logo" src="/img/logo.png" alt="Muse logo"></a> 
         <h1 class="mainTitle">Join Us</h1>
-        <p id="errorMessage"></p>
-        <form id="formContainer" method="POST" action="/register">
+        <form class="formContainer" id="form">
             <div>
                 <label for="firstNameInput">
                     <i class="fa-solid fa-user"></i>
@@ -44,11 +43,13 @@
                 <label for="repeatPasswordInput">
                     <i class="fa-solid fa-lock"></i>
                 </label>
-                <input type="password" name="repeatPassword" id="passwordInput" placeholder="Repeat Password">
+                <input type="password" name="repeatPassword" id="repeatPasswordInput" placeholder="Repeat Password">
             </div>
             <button class="mainBtn" type="submit">Join</button>
         </form>
+        <p id="errorMessage"></p>
         <p>Already have an Account? <a id="linkTxt" href="login">Login</a></p>
     </div>
-    </body>
+        <script src="./js/signup.js"></script>
+</body>
 </html>
