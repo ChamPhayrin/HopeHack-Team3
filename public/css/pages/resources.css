@@ -258,6 +258,7 @@ h2 {
   font-family: "Arial", sans-serif;
   text-align: center;
   font-size: 35px;
+  color: white;
 }
 
 /* The class thats connected to my Learning tool names */
@@ -275,6 +276,7 @@ p {
 .para-quote {
   text-align: center;
   margin: 15px;
+  color: white;
 }
 
 /* The p element at the top of my page */
@@ -336,6 +338,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #3d3d3d;
   border: 1px solid black;
   border-radius: 5px;
   height: auto;
