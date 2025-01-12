@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			profileModal.style.display = "flex";
 
+<<<<<<< HEAD
 			userDisplay.innerHTML = ` Hi, ${capitalizeString(
 				localStorage.getItem("first_name")
 			)}!`;
@@ -83,4 +84,16 @@ document.addEventListener("DOMContentLoaded", () => {
 			event.target.style.display = "none"; // Hide the modal
 		}
 	});
+=======
+  //   // Optional: Handle Join and Login button clicks
+  //   joinBtn.addEventListener("click", function () {
+  //     alert("Join button clicked.");
+  //     modal.style.display = "none"; // Hide the modal after clicking
+  //   });
+
+  //   loginBtn.addEventListener("click", function () {
+  //     alert("Login button clicked.");
+  //     modal.style.display = "none"; // Hide the modal after clicking
+  //   });
+>>>>>>> 0e4daf4fa64c9317037a6436d678f96571171df2
 });

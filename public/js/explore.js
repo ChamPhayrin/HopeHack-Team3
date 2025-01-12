@@ -85,8 +85,14 @@ searchForm.addEventListener('submit', (e) => {
   }
 
   if(localStorage.getItem('user_id')){
-
     
+    fetch('/saveSearch', {
+      method: 'POST',
+      body: {
+        user_id: ``,
+        search
+      }
+    })
 
   }
 
