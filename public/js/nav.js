@@ -37,26 +37,32 @@ document.addEventListener("DOMContentLoaded", () => {
 	profileIcon.addEventListener("click", function () {
 		if (localStorage.getItem("user_id")) {
 			const emailDisplay = document.getElementById("loggedin-info-email");
-			const nameDisplay = document.getElementById(
-				"loggedin-info-name"
-			);
+			const nameDisplay = document.getElementById("loggedin-info-name");
 			const userDisplay = document.getElementById("loggedin-info-user");
-			const capitalizeString = (str) =>
-				str.replace(/\b\w/g, (char) => char.toUpperCase());
+			const capitalizeString = (str) => str.replace(/\b\w/g, (char) => char.toUpperCase());
+
+			fetch(`/getSearch?user_id=${localStorage.getItem("user_id")}`).then(res => {
+				return res.json()
+			}).then(res => {
+				const ul = document.getElementById('loggedin-info-searches-list');
+				ul.innerHTML = '';  // Clear existing list
+				
+				for (const item of res) {
+					const li = document.createElement('li');
+					li.textContent = item.search_query;  
+					ul.appendChild(li);
+				}
+			})
 
 			profileModal.style.display = "flex";
 
-<<<<<<< HEAD
 			userDisplay.innerHTML = ` Hi, ${capitalizeString(
 				localStorage.getItem("first_name")
 			)}!`;
 			emailDisplay.innerHTML = `Email: ${localStorage.getItem("email")}`;
 			nameDisplay.innerHTML = `Name: ${capitalizeString(
 				localStorage.getItem("first_name")
-			)} ${capitalizeString(
-				localStorage.getItem("last_name")
-			)}`;
-
+			)} ${capitalizeString(localStorage.getItem("last_name"))}`;
 			// Logout button
 			logoutBtn.addEventListener("click", () => {
 				localStorage.clear();
@@ -84,16 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
 			event.target.style.display = "none"; // Hide the modal
 		}
 	});
-=======
-  //   // Optional: Handle Join and Login button clicks
-  //   joinBtn.addEventListener("click", function () {
-  //     alert("Join button clicked.");
-  //     modal.style.display = "none"; // Hide the modal after clicking
-  //   });
+	//   // Optional: Handle Join and Login button clicks
+	//   joinBtn.addEventListener("click", function () {
+	//     alert("Join button clicked.");
+	//     modal.style.display = "none"; // Hide the modal after clicking
+	//   });
 
-  //   loginBtn.addEventListener("click", function () {
-  //     alert("Login button clicked.");
-  //     modal.style.display = "none"; // Hide the modal after clicking
-  //   });
->>>>>>> 0e4daf4fa64c9317037a6436d678f96571171df2
+	//   loginBtn.addEventListener("click", function () {
+	//     alert("Login button clicked.");
+	//     modal.style.display = "none"; // Hide the modal after clicking
+	//   });
 });

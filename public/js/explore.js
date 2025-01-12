@@ -88,10 +88,11 @@ searchForm.addEventListener('submit', (e) => {
     
     fetch('/saveSearch', {
       method: 'POST',
-      body: {
-        user_id: ``,
-        search
-      }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        user_id: `${localStorage.getItem('user_id')}`,
+        search_query: searchValue
+      })
     })
 
   }

@@ -105,9 +105,7 @@ app.get("/contactus", (req, res) => {
 app.get("/q", async (req, res) => {
 	const q = req.query.q;
 
-	if (!q) {
-		return res.send("Error: Search query is required");
-	}
+	if (!q) return res.send("Error: Search query is required");
 
 	try {
 		// Fetch artworks
@@ -135,9 +133,7 @@ app.post("/register", (req, res) => {
 	if (!firstname) return res.send({ error: "Please enter first name" });
 	if (!lastname) return res.send({ error: "Please enter last name" });
 
-	if (password != repeatPassword) {
-		return res.send({ error: "Password do not match!" });
-	}
+	if (password != repeatPassword) return res.send({ error: "Password do not match!" });
 
 	const insertQ =
 		"INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
@@ -188,24 +184,35 @@ app.post("/saveSearch", (req, res) => {
 	if (!search_query) return res.send({ error: "Please enter search" });
 
 	const insertQ =
-		"INSERT INTO saved_searches (search_query, user_is) VALUES (?, ?)";
+		"INSERT INTO saved_searches (search_query, user_id) VALUES (?, ?)";
+	const values = [search_query, user_id];
 	const selectSaveSearchQ = `SELECT search_query FROM saved_searches WHERE user_id = ${user_id}`;
-	const deleteSaveSearchQ = `DELETE FROM saved_searches WHERE search_id IN (SELECT search_id FROM saved_searches WHERE user_id = ${user_id} ORDER BY search_id ASC LIMIT 1)`;
+	const deleteSaveSearchQ = `DELETE FROM saved_searches WHERE user_id = ${user_id} ORDER BY search_id ASC LIMIT 1;`;
 
-	connection.query(insertQ, (err, result) => {
+	connection.query(insertQ, values, (err, result) => {
 		if (err) throw err;
 			connection.query(selectSaveSearchQ, (err, result) => {
 				if (err) throw err;
-        if (result.length > 0) {
-          if (result.length >= 3) {
-            connection.query(deleteSaveSearchQ, (err, result) => {
-              if (err) throw err;
-            });
-          }
+				if (result.length > 3) {
+					connection.query(deleteSaveSearchQ, (err, result) => {
+						if (err) throw err;
+					});
         }
 			});
 	});
 });
+
+app.get("/getSearch", (req, res) =>{
+	const user_id = req.query.user_id
+
+	const selectSaveSearchQ = `SELECT search_query FROM saved_searches WHERE user_id = ${user_id}`;
+
+		connection.query(selectSaveSearchQ, (err, result) => {
+			if(err) throw err;
+			return res.send(result)
+		})
+
+})
 
 // Non-existing routes
 app.get("*", (req, res) => {

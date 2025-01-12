@@ -273,8 +273,7 @@ header .nav-wrapper .nav-links a {
 .loggedin-info{
   text-align: left;
   width: 90%;
-  padding: 15px 10px;
-  margin-top: 10px;
+  padding:  0 15px 10px 0;
   color: black;
   font-size: 16px;
   border-bottom: 1px solid #333;
@@ -301,6 +300,10 @@ header .nav-wrapper .nav-links a {
   font-weight: 600;
   text-transform: uppercase;
   transition: 150ms ease;
+}
+
+#loggedin-info-searches-list{
+  margin: 0;
 }
 
 .modal {
