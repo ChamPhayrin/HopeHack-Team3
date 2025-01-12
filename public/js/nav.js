@@ -37,10 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	profileIcon.addEventListener("click", function () {
 		if (localStorage.getItem("user_id")) {
 			const emailDisplay = document.getElementById("loggedin-info-email");
-			const firstNameDisplay = document.getElementById(
-				"loggedin-info-firstName"
+			const nameDisplay = document.getElementById(
+				"loggedin-info-name"
 			);
-			const lastNameDisplay = document.getElementById("loggedin-info-lastName");
 			const userDisplay = document.getElementById("loggedin-info-user");
 			const capitalizeString = (str) =>
 				str.replace(/\b\w/g, (char) => char.toUpperCase());
@@ -50,13 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			userDisplay.innerHTML = ` Hi, ${capitalizeString(
 				localStorage.getItem("first_name")
 			)}!`;
-			emailDisplay.innerHTML = localStorage.getItem("email");
-			firstNameDisplay.innerHTML = capitalizeString(
+			emailDisplay.innerHTML = `Email: ${localStorage.getItem("email")}`;
+			nameDisplay.innerHTML = `Name: ${capitalizeString(
 				localStorage.getItem("first_name")
-			);
-			lastNameDisplay.innerHTML = capitalizeString(
+			)} ${capitalizeString(
 				localStorage.getItem("last_name")
-			);
+			)}`;
 
 			// Logout button
 			logoutBtn.addEventListener("click", () => {
@@ -79,11 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 
-  	// Close the modal when you click on the background (outside the modal content)
-    window.addEventListener("click", (event) => {
-      if ([modal, profileModal].includes(event.target)) {
-        event.target.style.display = "none"; // Hide the modal
-      }
-    });
-
+	// Close the modal when you click on the background (outside the modal content)
+	window.addEventListener("click", (event) => {
+		if ([modal, profileModal].includes(event.target)) {
+			event.target.style.display = "none"; // Hide the modal
+		}
+	});
 });

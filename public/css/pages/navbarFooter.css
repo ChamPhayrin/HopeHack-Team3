@@ -281,12 +281,18 @@ header .nav-wrapper .nav-links a {
   width: 90%;
   padding: 15px 10px;
   margin-top: 10px;
-  background-color: #333;
-  border: none;
-  color: white;
+  color: black;
   font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  border-bottom: 1px solid #333;
+}
+
+#loggedin-header{
+  text-align: left;
+  margin: 0%;
+  font-weight: normal;
+}
+#loggedin-info-user{
+  text-align: left;
 }
 
 #logout-btn{

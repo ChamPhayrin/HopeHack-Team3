@@ -84,6 +84,12 @@ searchForm.addEventListener('submit', (e) => {
     return;
   }
 
+  if(localStorage.getItem('user_id')){
+
+    
+
+  }
+
   // Check for invalid search term
   if (searchValue.length < 3) {
     showError(error, cardContainer, searchTitle, 'Search term must be at least 3 characters long');
