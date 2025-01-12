@@ -69,9 +69,18 @@ document.addEventListener("DOMContentLoaded", () => {
               message: messageInput.value
             })
           })
+
+          const modalDisplay = document.getElementById('con-container-modal');
+          modalDisplay.style.display = 'flex'
+
+          setTimeout(() => {
+            window.location.href = '/'
+          }, 3000);
+
         } catch (err) {
           console.log(err)
         }
+
       } else {
         try {
           fetch('/contactMessage',  {
@@ -84,12 +93,17 @@ document.addEventListener("DOMContentLoaded", () => {
               message: messageInput.value
             })
           })
+
+          const modalDisplay = document.getElementById('con-container-modal');
+          modalDisplay.style.display = 'flex'
+
+          setTimeout(() => {
+            window.location.href = '/'
+          }, 3000);
         } catch (err) {
           console.log(err)
         }
       }
-
-      // Disable btn + show text, reactivate btn.
     }
   });
 });

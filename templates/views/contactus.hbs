@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="../css/pages/contact.css" />
     <link rel="icon" href="/img/mlogo.png" />
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <title>Contact Us</title>
   </head>
   <body>
@@ -48,6 +49,14 @@
         <button class="conBtn" type="submit">Send Message</button>
       </form>
       <p>Got back to <a id="linkTxt" href="/">Home</a></p>
+
+    <div id="con-container-modal" class="modal">
+    <div class="modal-content">
+      <h1 class="modal-text-display" id="modal-greet">Redirecting...</h1>
+      <h4 class="modal-text-display" id="modal-thanks">Thank you for your message! We'll be in contact with you shortly.</h4>
+      <div class="modal-loading-animation"><dotlottie-player src="https://lottie.host/d9dcbbf2-e089-4f1e-b68f-174b91004cbd/6suaGyg4gT.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player> </div>
+    </div>
+    </div>
 
     </div>
     <script src="/js/contact.js"></script>

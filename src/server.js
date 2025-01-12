@@ -224,6 +224,7 @@ app.post('/contactMessage', (req, res) =>{
 
 	connection.query(insertQ, values, (err, result) => {
 		if (err) throw err;
+		res.send({success: 'Success!'})
 	})
 
 })
