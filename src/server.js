@@ -126,14 +126,13 @@ app.get("/q", async (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-	const { firstname, lastname, email, password, repeatPassword } = req.body;
+	const { firstname, lastname, email, password } = req.body;
 
 	if (!password) return res.send({ error: "Please enter password" });
 	if (!email) return res.send({ error: "Please enter email" });
 	if (!firstname) return res.send({ error: "Please enter first name" });
 	if (!lastname) return res.send({ error: "Please enter last name" });
 
-	if (password != repeatPassword) return res.send({ error: "Password do not match!" });
 
 	const insertQ =
 		"INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
@@ -149,7 +148,7 @@ app.post("/register", (req, res) => {
 		} else {
 			connection.query(insertQ, values, (err, result) => {
 				if (err) throw err;
-				res.redirect("/login");
+				return res.send({success: "Success!"})
 			});
 		}
 	});
@@ -211,6 +210,21 @@ app.get("/getSearch", (req, res) =>{
 			if(err) throw err;
 			return res.send(result)
 		})
+		
+
+})
+
+
+app.post('/contactMessage', (req, res) =>{
+	const {user_id, full_name, email, message} = req.body
+
+	const insertQ = "INSERT INTO contact_us (user_id, full_name, email, message) VALUES (?, ?, ?, ?)";
+
+	const values = [user_id, full_name, email, message];
+
+	connection.query(insertQ, values, (err, result) => {
+		if (err) throw err;
+	})
 
 })
 
