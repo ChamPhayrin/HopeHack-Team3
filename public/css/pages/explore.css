@@ -6,7 +6,7 @@
   --color-btn-bg: #739596;
 }
 
-header{
+header {
   background-image: url("/img/exploreBanner.avif") !important;
 }
 
@@ -62,7 +62,9 @@ header{
   transition: opacity 0.3s ease-out;
 }
 
-.card h2, .card h6, .card p {
+.card h2,
+.card h6,
+.card p {
   position: absolute;
   margin: 0;
   padding: 5px;
@@ -107,7 +109,7 @@ header{
 }
 
 .card::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -123,7 +125,8 @@ header{
   opacity: 1;
 }
 
-.card:hover h2, .card:hover h6 {
+.card:hover h2,
+.card:hover h6 {
   opacity: 0;
 }
 
@@ -135,7 +138,6 @@ header{
 .card:hover img {
   opacity: 0.7;
 }
-
 
 /* Search Container */
 .search-container {
@@ -225,7 +227,7 @@ header{
 }
 
 .hidden {
-  display: none!important;
+  display: none !important;
 }
 
 .container-error {
