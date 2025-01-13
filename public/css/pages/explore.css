@@ -171,7 +171,7 @@ header {
   font-size: 14px;
   line-height: 18px;
   color: var(--color-btn-bg);
-  border-radius: 50px 0 0 50px;
+  border-radius: 3px 0 0 3px;
   border: 1px solid var(--color-secondary);
   outline: none;
   font-family: var(--text-primary);
@@ -180,7 +180,7 @@ header {
 .search-btn {
   cursor: pointer;
   border: none;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 3px 3px 0;
   padding: 12px 24px;
   background-color: var(--color-btn-bg);
   color: var(--color-text);
