@@ -9,8 +9,9 @@ body{
     color: #2E2B41;
     text-align: center;
     min-height: 100vh;
-    /* background-image: url(h.jpg);
-    background-size:cover; */
+    background-image: url(/img/loginB.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     background-color: #658485;
     background-position: right;
     overflow: hidden;
@@ -23,10 +24,11 @@ body{
     background-color: white;
     height: 100vh;
     padding: 10px;
-    width: max(48%, 600px);
-    border-radius: 10px 0 0 10px;
+    width: max(49%, 600px);
+    border-radius: 0 5px 5px 0;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .mainTitle{
@@ -130,11 +132,15 @@ div:has(input:focus) > label{
 
 #logo{
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 130px;
+    top: 25px;
+    left: 25px;
+    width: 67px;
     height: auto;
     cursor: pointer;
+}
+
+#logo:hover {
+    transform: translateY(-8px);
 }
 
 #errorMessage{
@@ -150,6 +156,10 @@ form div.incorrectTxt label{
 
 form div.incorrectTxt input{
     border-color: #eb5062;
+}
+
+#homeTxt{
+    margin-top: 10px;
 }
 
 @media(max-width: 1100px){
