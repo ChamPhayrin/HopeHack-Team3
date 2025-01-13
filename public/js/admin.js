@@ -7,7 +7,7 @@ async function loadMessages() {
     const messageHeader = document.querySelector('.messages-header')
     const greetHeader = document.getElementById('container-greet')
 
-    if (localStorage.getItem('is_admin') === '0') {
+    if (localStorage.getItem('is_admin') === '0' || !localStorage.getItem('is_admin')) {
       greetHeader.innerHTML = `<h1>Unathorized Acess</h1>`;
       messagesContainer.innerHTML = '';
       messageHeader.innerHTML = '';
