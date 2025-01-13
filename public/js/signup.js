@@ -56,9 +56,29 @@ form.addEventListener("submit", async function (e) {
         errorMessage.innerHTML = errorMessages.join("<br>");
     } else {
         //if no errors, reset form and show success notifications
-        form.reset();
-        window.location.href = '/login';
-        errorMessage.textContent = ""; // CLear any error text
+		errorMessage.textContent = ""; // CLear any error text
+		try {
+			const response = await fetch("/register", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					firstname: firstName.value,
+					lastname: lastName.value,
+					email: email.value,
+					password: password.value,
+				})
+			});
+			const data = await response.json();
+			if (response.ok) {  
+				if (data.error) {
+					errorMessage.textContent = data.error;
+				} else {
+                    window.location.href = '/login'
+                }
+			}
+		} catch (err) {
+			errorMessage.innerHTML = err;
+		}
     }
 });
 

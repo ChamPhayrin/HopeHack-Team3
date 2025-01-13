@@ -6,6 +6,7 @@ html {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  width: 100vw;
 }
 
 /* Header */
@@ -13,7 +14,7 @@ header {
   display: flex;
   flex-direction: column;
   padding: 3rem;
-  height: 400px;
+  height: 40vh;
   background-image: url("/img/hero_img.jpg");
   background-size: cover;
   background-position: center;
@@ -68,16 +69,14 @@ header .nav-text button {
   transition: all 0.4s ease; /* Smooth transition for all properties */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   /* Normal state */
-
-  /* Active state (button press) */
-  /* Water droop effect */
-  /* When hovered, create the droopy water effect */
 }
+
 header .nav-text button:hover {
   background-color: #4b6361; /* Darker shade for hover */
   border-color: #4b6361;
   transform: scale(1.05) translateY(-5px); /* Slightly enlarge and drop down */
 }
+
 header .nav-text button:active {
   transform: scale(1.05) translateY(10px); /* More drooping effect */
 }
@@ -86,6 +85,7 @@ header .nav-text button a {
   color: white;
   text-decoration: none;
 }
+
 header .nav-wrapper {
   padding: 0 24px;
   display: flex;
@@ -97,21 +97,25 @@ header .nav-wrapper {
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
 header .nav-wrapper .brand-logo {
   display: flex;
   align-items: center;
   color: white;
   text-decoration: none;
 }
+
 header .nav-wrapper .brand-logo img {
   width: 4rem;
   height: 4rem;
   padding: 0;
   margin: 0;
 }
+
 header .nav-wrapper .nav-links {
   display: flex;
 }
+
 header .nav-wrapper .nav-links li {
   display: flex;
   justify-content: center;
@@ -125,11 +129,13 @@ header .nav-wrapper .nav-links li {
   text-transform: uppercase;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 header .nav-wrapper .nav-links li:hover {
   color: white;
   background-color: #739596;
   transform: scale(1.05);
 }
+
 header .nav-wrapper .nav-links img {
   border: none;
   background: none;
@@ -143,6 +149,7 @@ header .nav-wrapper .nav-links img {
   font-size: larger;
   text-transform: uppercase;
 }
+
 header .nav-wrapper .nav-links a {
   color: black;
   text-decoration: none;
@@ -162,8 +169,8 @@ header .nav-wrapper .nav-links a {
   margin: 10px;
   border-radius: 6px;
   text-align: center;
-  animation: slide-left 0.5s ease-in both;
 }
+
 .side-nav li {
   margin: 15px 0;
   font-weight: 590;
@@ -187,15 +194,7 @@ header .nav-wrapper .nav-links a {
 }
 
 .side-nav.active {
-  right: -50; /* Show the sidebar when active */
-}
-@keyframes slide-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-71.3px);
-  }
+  right: 0; /* No animation needed, just display side-nav */
 }
 
 /* Hamburger Menu */
@@ -208,6 +207,7 @@ header .nav-wrapper .nav-links a {
   z-index: 10;
   /* When the hamburger is active (clicked) */
 }
+
 .hamburger-menu span {
   background-color: #333;
   height: 4px;
@@ -215,12 +215,15 @@ header .nav-wrapper .nav-links a {
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
 .hamburger-menu.active span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
+
 .hamburger-menu.active span:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger-menu.active span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
@@ -228,27 +231,31 @@ header .nav-wrapper .nav-links a {
 @media (max-width: 768px) {
   header {
     /* width: 100%; */
-    height: 45rem;
+    height: 20rem;
   }
+
   /* Show Hamburger Menu */
   .hamburger-menu {
     display: flex;
   }
+
   /* Hide nav links for smaller screens */
   .nav-links {
     display: none !important;
   }
+
   /* Show side navigation when active */
   .side-nav.active {
     display: block;
   }
+
   .footer-links {
     flex-wrap: wrap;
     height: 20px;
   }
 
   .nav-text h1 {
-    font-size: 4rem;
+    font-size: 2rem;
     margin: 1rem 0;
   }
 
@@ -256,19 +263,23 @@ header .nav-wrapper .nav-links a {
     padding: 20px 10px;
     width: 10rem;
   }
+
   .nav-text button a {
     font-size: 0.9rem;
   }
 }
+
 /* For screens larger than 768px */
 @media (min-width: 769px) {
   /* Display the nav links horizontally */
   .nav-links {
     gap: 20px;
   }
+
   .nav-text h1 {
     font-size: 7rem;
   }
+
   /* Hide the side navigation on larger screens */
   .side-nav {
     display: none;
@@ -283,6 +294,7 @@ header .nav-wrapper .nav-links a {
     padding: 20px 10px;
     width: 10rem;
   }
+
   .nav-text button a {
     font-size: 1rem;
   }
@@ -300,6 +312,11 @@ header .nav-wrapper .nav-links a {
   cursor: pointer;
   margin-left: 40%;
 }
+
+#profile-icon-side i{
+  color: white;
+}
+
 #profile-icon {
   width: 2rem;
   height: 2rem;
@@ -307,26 +324,27 @@ header .nav-wrapper .nav-links a {
   cursor: pointer;
 }
 
-
-.loggedin-info{
+.loggedin-info {
   text-align: left;
   width: 90%;
-  padding:  0 15px 10px 0;
+  padding: 0 15px 10px 0;
   color: black;
   font-size: 16px;
   border-bottom: 1px solid #333;
 }
 
-#loggedin-header{
+#loggedin-header {
   text-align: left;
   margin: 0%;
   font-weight: normal;
 }
-#loggedin-info-user{
+
+#loggedin-info-user {
   text-align: left;
 }
 
-#logout-btn, #admin-btn{
+#logout-btn,
+#admin-btn {
   width: 40%;
   cursor: pointer;
   border: none;
@@ -340,13 +358,18 @@ header .nav-wrapper .nav-links a {
   transition: 150ms ease;
 }
 
-#admin-btn{
+#admin-btn {
   display: none;
   font-size: 15px;
 }
 
-#loggedin-info-searches-list{
+#loggedin-info-searches-list {
   margin: 0;
+  list-style-type: circle;
+}
+
+#loggedin-info-searches p{
+  color: black;
 }
 
 .modal {
@@ -402,6 +425,7 @@ footer {
   position: relative;
   bottom: 0;
 }
+
 footer .seperator {
   border-top: 5px solid #ccc;
   margin: 0 0 20px;
@@ -411,6 +435,7 @@ footer .seperator {
   align-items: center;
   margin: 0 auto;
 }
+
 .footer-nav .section1 {
   display: flex;
   justify-content: space-between;
@@ -418,16 +443,16 @@ footer .seperator {
   align-items: center;
   font-size: medium;
 }
+
 .footer-nav .footer-logo {
   font-size: 18px;
   font-weight: 700;
   color: white;
-  /* padding: 10px; */
   text-decoration: none;
   background-color: #3d3d3d;
-  /* border: 2px black solid; */
   border-radius: 5px;
 }
+
 .footer-nav .footer-links {
   display: flex;
   flex-direction: row-reverse;
@@ -437,6 +462,7 @@ footer .seperator {
   display: flex;
   gap: 15px;
 }
+
 .footer-nav .footer-links li a {
   display: block;
   width: 30px;
@@ -444,16 +470,19 @@ footer .seperator {
   font-size: medium;
   color: white;
 }
+
 .footer-nav .footer-links li a i {
   font-size: 22px;
   cursor: pointer;
 }
+
 .footer-nav .footer-links li a img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
   object-fit: contain;
 }
+
 .footer-nav .footer-links li a:hover {
   opacity: 0.7;
 }
@@ -462,6 +491,7 @@ footer .seperator {
   display: flex;
   margin-bottom: 30px;
 }
+
 .section2 p {
   font-size: 16px;
   color: white;
@@ -480,6 +510,7 @@ footer .seperator {
   gap: 15px;
   flex-wrap: wrap;
 }
+
 .section3 ul li a {
   text-decoration: none;
   color: white;
@@ -488,6 +519,7 @@ footer .seperator {
   border-radius: 5px;
   transition: background-color 0.3s;
 }
+
 .section3 ul li a:hover {
   background-color: #007bff;
   color: white;
@@ -507,18 +539,22 @@ footer .seperator {
   justify-content: space-around;
   gap: 15px;
 }
+
 .section5 ul li {
   font-size: 14px;
   color: white;
 }
+
 .section5 ul li:not(:last-child) {
   margin-right: 20px;
 }
+
 .section5 ul li a {
   text-decoration: none;
   color: white;
   transition: color 0.3s;
 }
+
 .section5 ul li a:hover {
   color: #007bff;
 }
@@ -528,6 +564,7 @@ footer a {
   color: white;
   transition: color 0.3s;
 }
+
 footer a:hover {
   color: #007bff;
 }

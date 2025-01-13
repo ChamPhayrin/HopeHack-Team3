@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/pages/resources.css" />
     <link rel="icon" href="/assets/museLogo.png">
     <link rel="stylesheet" href="../css/pages/aiOrNot.css">
+    <link rel="stylesheet" href="../css/pages/navbarFooter.css">
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <script src="https://kit.fontawesome.com/5e3005e55e.js" crossorigin="anonymous"></script>
 
@@ -13,18 +14,8 @@
   </head>
   <body>
      {{>navbar}}
-
-    
-    <main>
-      <div class="box1 boxes">
-        <div class="inner-box one">
-          <p>
-            Explore a curated collection of tools, guides, and references designed to help you learn and create. Whether you're a beginner or a pro, there's something here for everyone. Let's build, learn, and grow together!
-          </p>
-        </div>
-      </div>
-
-      <section class="text-row">
+         <main>
+        <section class="text-row">
         <div class="allContent">
           <div class="content1">
             <h2 class="connect-h2">Connect to the art community</h2>
@@ -53,6 +44,38 @@
           </p>
         </div>
       </section>
+    
+
+      <section id="ai-container">
+  <div id="aiornot-container">
+  <form id="ai-form" enctype="multipart/form-data">
+    <div id="form-left">
+        <h1>Is it AI?</h1>
+        <div id="image-container">
+            <img id="uploadedImage" src="../img/logo.png" alt="Uploaded Image">
+        </div>
+    </div>
+    <div id="form-right">
+        <h3 id="aiProbability">AI Probability: --</h3>
+        <div id="aiResult">
+            <p id="aiResult-text"></p>
+        </div>
+        <input type="file" name="image" id="imageUpload" accept="image/*" />
+        <button type="submit" id="form-btn" class="mainBtn">Check</button>
+    </div>
+</form>
+</section>
+
+
+      <div class="box1 boxes">
+        <div class="inner-box one">
+          <p>
+            Explore a curated collection of tools, guides, and references designed to help you learn and create. Whether you're a beginner or a pro, there's something here for everyone. Let's build, learn, and grow together!
+          </p>
+        </div>
+      </div>
+
+      
 
       <section class="grid-section">
         <h2>Learning tools</h2>
@@ -90,30 +113,14 @@
         </div>
       </section>
 
-       
 
-      <div id="aiornot-container">
-  <form id="ai-form" enctype="multipart/form-data">
-    <div id="form-left">
-        <h1>Is it AI?</h1>
-        <div id="image-container">
-            <img id="uploadedImage" src="../img/logo.png" alt="Uploaded Image">
-        </div>
-    </div>
-    <div id="form-right">
-        <h3 id="aiProbability">AI Probability: --</h3>
-        <div id="aiResult">
-            <p id="aiResult-text"></p>
-        </div>
-        <input type="file" name="image" id="imageUpload" accept="image/*" />
-        <button type="submit" id="form-btn" class="mainBtn">Check</button>
-    </div>
-</form>
+
 
 </div>
     </main>
 
      {{>footer}}
      <script src="./js/aiOrNotClient.js"></script>
+      <script src="./js/nav.js"></script>
   </body>
 </html>

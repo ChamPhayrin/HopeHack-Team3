@@ -1,6 +1,9 @@
+header{
+  background-image: url('https://www.discoverlosangeles.com/sites/default/files/images/2019-01/Getty%20Center%20Van%20Gogh%20Irises.jpg?width=1600&height=1200&fit=crop&quality=78&auto=webp')!important;
+}
+
 body{
   width: 100vw;
-  overflow: hidden;
 }
 h1, h2 {
   letter-spacing: 1px;
@@ -20,8 +23,7 @@ h2 {
 }
 
 #container-greet {
-  width: 100%;
-  padding: 3rem 5rem;
+  padding: 3rem 0 0  5rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;

@@ -139,9 +139,6 @@ div:has(input:focus) > label{
     cursor: pointer;
 }
 
-#logo:hover {
-    transform: translateY(-8px);
-}
 
 
 #errorMessage{
