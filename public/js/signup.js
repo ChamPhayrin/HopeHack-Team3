@@ -21,6 +21,9 @@ form.addEventListener('submit', function (e) {
     } else if (firstName.value.length < 2) {
         errorMessages.push('First name must be at least 2 characters long');
         showError(firstName);
+    } else if (firstName.value.length > 40) {
+        errorMessages.push('First name must be less than 40 characters long');
+        showError(firstName);
     }
     //last name validation
     if (lastName.value.trim() === ""){
@@ -28,6 +31,9 @@ form.addEventListener('submit', function (e) {
         showError(lastName);
     }  else if (lastName.value.length < 2) {
         errorMessages.push('Last name must be at least 2 characters long');
+        showError(lastName);
+    } else if (lastName.value.length > 40) {
+        errorMessages.push('Last name must be less than 40 characters long');
         showError(lastName);
     }
     //email validation
