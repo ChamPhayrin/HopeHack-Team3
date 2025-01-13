@@ -1,0 +1,247 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-image: url("https://www.theworldbucketlist.com/wp-content/uploads/2021/10/the-scream-1024x683.jpg") !important;
+}
+/* 
+/* About Us Content */
+#abtUs-article- {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Image styling */
+.abtUs-water {
+  max-width: 460px;
+  height: auto;
+  border-radius: 3px;
+  align-self: flex-start;
+}
+
+.abtUs-heading--mission {
+  margin-left: 10%;
+  font-size: 4rem;
+  color: #333;
+  margin-bottom: 2%;
+  margin-top: 5%;
+}
+.abtUs-text_top {
+  text-align: left;
+  font-size: 1.8rem;
+  max-width: 60%;
+  color: #555;
+  line-height: 1.8;
+  margin-right: 3%;
+}
+
+.abtUs-text_bottom {
+  text-align: center;
+  font-size: 1.8rem;
+  max-width: 80%;
+  word-wrap: break-word;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 auto;
+  margin-bottom: 10%;
+}
+
+.abtUs-heading--vision {
+  text-align: center;
+  font-size: 4rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+.abtH {
+  text-align: center;
+  font-size: 4rem;
+  margin-top: 10%;
+}
+.abtUs-slideshow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.abtUs-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 15rem;
+  height: 20rem;
+  margin: 20px;
+  /* color: white; */
+  font-size: 1.2rem;
+  position: relative;
+  transition: transfor 0.3 ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+.abtUs-slide h1,
+.abtUs-slide h4,
+.abtUs-slide p {
+  color: var(--color-text);
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.3s;
+  right: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.8rem;
+  position: relative;
+  z-index: 2;
+}
+.abtUs-slide:hover h1,
+.abtUs-slide:hover h4,
+.abtUs-slide:hover p {
+  opacity: 1;
+  color: var(--color-text);
+}
+.abtUs-slide:hover {
+  opacity: 0.8;
+}
+
+:root {
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-text: #ffffff;
+}
+
+.abtUs-slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-overlay);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+.abtUs-slide:hover::after {
+  opacity: 1;
+}
+
+.one {
+  background-image: url("/images/ismael.jpg");
+}
+.two {
+  background-image: url("/images/cham.jpeg");
+}
+.three {
+  background-image: url("/images/angel.jpeg");
+}
+.four {
+  background-image: url("/images/jared.jpeg");
+}
+.five {
+  background-image: url("/images/itaty.jpeg");
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+
+  /* About Us Article Layout */
+  #abtUs-article- {
+    margin-left: 5%;
+    margin-right: 5%;
+    flex-direction: column;
+  }
+
+  /* Image Style */
+  .abtUs-water {
+    max-width: 100%;
+  }
+
+  /* Mission Heading */
+  .abtUs-heading--mission {
+    font-size: 2.5rem;
+    margin-left: 5%;
+  }
+
+  /* Text Sections */
+  .abtUs-text_top,
+  .abtUs-text_bottom {
+    font-size: 1.4rem;
+    max-width: 90%;
+  }
+
+  /* Vision Heading */
+  .abtUs-heading--vision {
+    font-size: 2.5rem;
+  }
+
+  /* Slideshow Section */
+  .abtUs-slideshow {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Individual Slide */
+  .abtUs-slide {
+    width: 80%;
+    height: 15rem;
+    margin: 10px;
+    font-size: 1rem;
+  }
+
+  .abtUs-slide h1,
+  .abtUs-slide h4,
+  .abtUs-slide p {
+    font-size: 1.2rem;
+  }
+
+  /* Heading Sizes */
+  .abtH {
+    font-size: 2.5rem;
+    margin-top: 5%;
+  }
+}
+
+/* For Small Devices (Phones and smaller tablets) */
+@media (max-width: 768px) {
+  header {
+    height: 150px;
+  }
+
+  .abtUs-heading--mission {
+    text-align: center;
+  }
+
+  .abtUs-text_top {
+    text-align: center;
+  }
+
+  .abtUs-slideshow {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .abtUs-slide {
+    width: 40%;
+    height: 10rem;
+  }
+
+  .abtUs-slide h1,
+  .abtUs-slide h4,
+  .abtUs-slide p {
+    font-size: 1rem;
+  }
+}

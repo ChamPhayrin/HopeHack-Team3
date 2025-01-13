@@ -1,47 +1,70 @@
-html {
-  width: 100vw;
-  height: 100vh;
+/* Resets all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #3d3d3d;
+  /* // The space between my lines  */
+  line-height: 1.6;
 }
 
-/* Header */
+a {
+  text-decoration: none;
+  color: #3d3d3d;
+}
+
+/* The community links at the bottom of my page  */
+.community-connect {
+  font-size: 30px;
+  margin: 0;
+  text-decoration: none;
+  color: #3d3d3d;
+  position: relative;
+}
+
+/* The line that appears when you hover over my community links  */
+.community-connect::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #739596;
+  transition: width 0.3s ease;
+}
+
+/* Grows the line to the full width of the community link that you hover over */
+.community-connect:hover::after {
+  width: 100%;
+}
+
 header {
   display: flex;
   flex-direction: column;
   padding: 3rem;
   height: 400px;
-  background-image: url("/img/hero_img.jpg");
+  background-image: url("https://img.freepik.com/free-photo/sun-god-depicted-as-powerful-man-renaissance-setting_23-2151296075.jpg") !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 header .nav-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
   color: white;
   padding: 10px;
-  width: 50%;
   height: 100%;
   text-align: center;
+  /* Basic button styles */
 }
-
 header .nav-text h1 {
   display: inline-block;
-  font-size: 4rem;
-  text-shadow: 0px 4px 9px rgba(0, 0, 0, 0.76);
+  font-size: 3rem;
 }
-
-header .nav-text p {
-  text-shadow: 0px 1px 2px rgb(19, 12, 12);
-}
-
 header .nav-text button {
   position: relative;
   padding: 15px 30px;
@@ -133,7 +156,7 @@ header .nav-wrapper .nav-links li {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 header .nav-wrapper .nav-links li:hover {
-  background-color: #739596;
+  background-color: #2980b9;
   transform: scale(1.05);
 }
 header .nav-wrapper .nav-links img {
@@ -224,96 +247,191 @@ header .nav-wrapper .nav-links a {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
-  header {
-    height: 40rem;
-  }
-  /* Show Hamburger Menu */
-  .hamburger-menu {
-    display: flex;
-  }
-  /* Hide nav links for smaller screens */
-  .nav-links {
-    display: none !important;
-  }
-  /* Show side navigation when active */
-  .side-nav.active {
-    display: block;
-  }
-  .footer-links {
-    flex-wrap: wrap;
-    height: 20px;
-  }
-}
-/* For screens larger than 768px */
-@media (min-width: 769px) {
-  /* Display the nav links horizontally */
-  .nav-links {
-    gap: 20px;
-  }
-  /* Hide the side navigation on larger screens */
-  .side-nav {
-    display: none;
-  }
-
-  header .nav-text h1 {
-    font-size: 2.5rem;
-  }
+h2 {
+  font-family: "Arial", sans-serif;
+  margin: 40px;
+  text-align: center;
+  font-size: 35px;
 }
 
-/* Profile Icon */
-#profile-icon {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 200%;
-  cursor: pointer;
+.connect-h2 {
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  font-size: 35px;
+  color: white;
 }
 
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  z-index: 1000;
+/* The class thats connected to my Learning tool names */
+.tool-names {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+p {
+  font-family: "Arial", sans-serif;
+  font-size: 22px;
+}
+
+/* The quote at the body fo my page */
+.para-quote {
+  text-align: center;
+  margin: 15px;
+  color: white;
+}
+
+/* The p element at the top of my page */
+.title-para {
+  text-align: center;
+  font-size: 35px;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+
+/* The div that holds my paragraph and image at the top of my page together */
+.image-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 80px;
+  margin-left: 80px;
+}
+
+.p-Community {
+  color: #3d3d3d;
+  font-size: 30px;
+  margin: 20px 90px;
+  flex-wrap: wrap;
+}
+
+/* The first section on my page */
+.section-title {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #3d3d3d;
+}
+
+.section-title .image-card {
+  text-align: center;
+  border-radius: 20px;
+}
+
+.section-title .image-card img {
+  max-width: 900px;
+  width: 400px;
+  height: 300px;
+  border: 1px solid #3d3d3d;
+}
+
+.resource-img {
+  border-radius: 2px;
+  margin-right: 20px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.content1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d3d3d;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: auto;
+  width: 75%;
+  margin-top: 4rem;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.allContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.text-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-row .text-row-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+  margin: 150px;
+  flex-wrap: wrap;
+}
+
+.text-row .text-row-items p {
+  text-align: center;
+  color: #3d3d3d;
+}
+
+.flex-center {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
+.hover-effect:hover {
+  background-color: #b3fffc;
+  color: #3d3d3d;
+}
+
+.grid-container img {
+  transition: 0.6s ease;
+}
+
+.grid-container img:hover {
+  transform: translateY(-10px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.grid-section {
+  padding: 16px;
+}
+
+.grid-item {
+  border-radius: 5px;
+  margin: 0;
+}
+
+.grid-section .grid-container {
+  display: flex;
+  gap: 16px;
+}
+
+.grid-section .grid-container .grid-item {
+  flex: 1;
+  background-color: #ffffff;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 15px;
+  box-sizing: border-box;
 }
 
-.modal button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #333;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.modal button a {
-  width: 100%;
-}
-
-.modal button:hover {
-  background-color: #444;
+.grid-section .grid-container .grid-item img {
+  width: 80%;
+  height: 60%;
+  margin-bottom: 50px;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border-radius: 2px;
 }
 
 footer {
   background-color: #3d3d3d;
-  padding: 20px 40px;
+  padding: 20px;
   gap: 15px;
   text-align: center;
   position: relative;
@@ -339,7 +457,7 @@ footer .seperator {
   font-size: 18px;
   font-weight: 700;
   color: white;
-  /* padding: 10px; */
+  padding: 10px;
   text-decoration: none;
   background-color: #3d3d3d;
   /* border: 2px black solid; */
@@ -447,4 +565,113 @@ footer a {
 }
 footer a:hover {
   color: #007bff;
+}
+
+/* Tablet and smaller devices */
+@media (max-width: 1024px) {
+  .image-card {
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .grid-section .grid-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .grid-section .grid-container .grid-item {
+    margin: 8px;
+  }
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #333;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal button:hover {
+  background-color: #444;
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+  .community-connect {
+    font-size: 24px;
+  }
+
+  h2,
+  .connect-h2 {
+    font-size: 24px;
+    margin: 20px;
+  }
+
+  .text-row .text-row-items {
+    margin: 20px;
+    flex-direction: column;
+  }
+
+  .text-row .text-row-items p {
+    font-size: 18px;
+  }
+
+  .image-card {
+    margin: 10px;
+    flex-wrap: wrap;
+  }
+
+  .grid-section .grid-container .grid-item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .community-connect {
+    font-size: 20px;
+  }
+
+  h2,
+  .connect-h2 {
+    font-size: 20px;
+    margin: 10px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .image-card img {
+    width: 100%;
+    height: auto;
+  }
 }

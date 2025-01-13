@@ -24,7 +24,7 @@ body{
     height: 100vh;
     padding: 10px;
     width: max(48%, 600px);
-    border-radius: 0 40px 40px 0;
+    border-radius: 10px 0 0 10px;
     align-items: center;
     justify-content: center;
 }
@@ -35,7 +35,7 @@ body{
     font-weight: 900;
 }
 
-#formContainer{
+.formContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,13 +45,13 @@ body{
     gap: 10px;
 }
 
-#formContainer > div{
+.formContainer > div{
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-#formContainer label {
+.formContainer label {
     font-size: 1.5rem;
     flex-shrink: 0;
     display: flex;
@@ -62,10 +62,10 @@ body{
     background-color: #739596;
     fill: #ffffff;
     color: rgb(255, 255, 255);
-    border-radius: 10px 0 0 10px;
+    border-radius: 3px 0 0 3px
 }
 
-#formContainer input{
+.formContainer input{
     flex-grow: 1;
     box-sizing: border-box;
     font: inherit; 
@@ -74,28 +74,32 @@ body{
     padding: 1em;
     border-left: none;
     border: 2px solid #b1cccc7a;
-    border-radius: 0 10px 10px 0;
+    border-radius: 3px;
     background-color: #b1cccc7a;
     transition: 150ms ease;
 }
 
-#formContainer input:focus{
+.formContainer input:focus{
     outline: none;
     border-color: #3d3d3d;
 }
 
-#formContainer input:hover{
+div:has(input:focus) > label{
+    background-color: #3d3d3d;
+}
+
+.formContainer input:hover{
     border-color: #739596;
 }
 
-#formContainer input::placeholder{
+.formContainer input::placeholder{
     color: #2E2B41;
 }
 
 .mainBtn{
     cursor: pointer;
     border: none;
-    border-radius: 1000px;
+    border-radius: 3px;
     margin-top: 10px;
     padding: .85em 4em;
     background-color: #739596;
@@ -111,9 +115,8 @@ body{
 }
 
 .mainBtn:focus{
-    outline: none;
-
     background-color: #3d3d3d;
+    outline: none;
 }
 
 #linkTxt{
@@ -129,9 +132,24 @@ body{
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 150px;
+    width: 130px;
     height: auto;
     cursor: pointer;
+}
+
+#errorMessage{
+    width: 100%;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    color: #eb5062;
+}
+
+form div.incorrectTxt label{
+    background-color: #eb5062;
+}
+
+form div.incorrectTxt input{
+    border-color: #eb5062;
 }
 
 @media(max-width: 1100px){
