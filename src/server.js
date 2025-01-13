@@ -3,9 +3,13 @@ const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
 const hbs = require("hbs");
+const fs = require('fs')
 const getArtwork = require("./utils/getArt");
 const getHistoricalEvents = require("./utils/getEvents");
+const aiOrNot = require('./utils/aiOrNot.js')
+const fileUpload = require('express-fileupload');
 const connection = require("../dbconfig.js");
+const Buffer = require('buffer')
 
 // Load variables from the .env file
 dotenv.config();
@@ -29,6 +33,17 @@ hbs.registerPartials(partialsPath); // Register partials for reusable parts like
 app.use(express.static(publicDirectory)); // Serve static files like CSS, JS, and images from the public folder
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(fileUpload())
+
+// app.use(
+// 	fileUpload({
+// 			limits: {
+// 					fileSize: 10000000,
+// 			},
+// 			abortOnLimit: true,
+// 	})
+// );
+
 // ROUTES
 
 // Home route
@@ -77,7 +92,7 @@ app.get("/resources", (req, res) => {
 		// Render the 'resources' view
 		title: "Resources",
 		description:
-			"Our resource library explores the evolving role of AI in the art world, examining both its potential and its challenges. We provide valuable insights into how AI is influencing traditional artistry and the preservation of historical techniques, fostering a thoughtful conversation about the future of art.",
+			"Every artist was first an amateur.” ― Ralph Waldo Emerson",
 	});
 });
 
@@ -229,12 +244,75 @@ app.post('/contactMessage', (req, res) =>{
 
 })
 
+app.post('/aiOrNot', async (req, res) => {
+  // Check if the 'image' file exists
+  if (!req.files || !req.files.image) {
+    return res.status(400).send({ error: 'No image file uploaded' });
+  }
+
+  // Get the file from req.files
+  const { image } = req.files;
+
+  // Ensure the file is an image
+  if (!/^image/.test(image.mimetype)) {
+    return res.status(400).send({ error: 'Invalid file type, only images allowed' });
+  }
+
+  const filePath = path.join(publicDirectory, 'userImages', image.name);
+
+  try {
+    // Move the uploaded file to the desired location
+    await image.mv(filePath);
+
+    // Read the file and convert it to base64
+    const imageBuffer = fs.readFileSync(filePath);
+    const imageBase64 = imageBuffer.toString('base64');
+
+    // Call the AI function to process the image
+    const data = await aiOrNot(filePath);
+
+    // Check if AI function returned an error
+    if (data.error) {
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          console.error('Error deleting file:', err);
+        } else {
+          console.log('File successfully deleted after processing');
+        }
+      });
+
+      return res.status(500).send({ error: data.error });
+    }
+
+    // Delete the file after processing
+    fs.unlink(filePath, (err) => {
+      if (err) {
+        console.error('Error deleting file:', err);
+      } else {
+        console.log('File successfully deleted after processing');
+      }
+    });
+
+    // Send the result back to the client
+    return res.send({
+      aiProbability: data,
+      imageBase64: imageBase64,
+      imageMimeType: image.mimetype,
+    });
+
+  } catch (err) {
+    console.error('Error processing file:', err);
+    res.status(500).send({ error: 'Failed to move or process image' });
+  }
+});
+
+
 // Non-existing routes
 app.get("*", (req, res) => {
 	res.render("404", {
 		// Render the '404' view
 		title: "Page Not Found",
-	});
+	});	
 });
 
 // CHECK SERVER IS UP
