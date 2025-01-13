@@ -4,9 +4,9 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
+body {
   font-size: 12pt;
-  color: #2E2B41;
+  color: #2e2b41;
   text-align: center;
   min-height: 100vh;
   background-image: url(/img/contactB.png);
@@ -20,7 +20,7 @@ body{
   overflow: hidden;
 }
 
-.con-wrapper{
+.con-wrapper {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -36,13 +36,13 @@ body{
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.conTitle{
+.conTitle {
   text-transform: uppercase;
   font-size: 3rem;
   font-weight: 900;
 }
 
-.formContainer{
+.formContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +52,7 @@ body{
   gap: 10px;
 }
 
-.formContainer > div{
+.formContainer > div {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -69,13 +69,13 @@ body{
   background-color: #739596;
   fill: #ffffff;
   color: rgb(255, 255, 255);
-  border-radius: 3px 0 0 3px
+  border-radius: 3px 0 0 3px;
 }
 
-.formContainer input{
+.formContainer input {
   flex-grow: 1;
   box-sizing: border-box;
-  font: inherit; 
+  font: inherit;
   min-width: 0;
   height: 50px;
   padding: 1em;
@@ -86,24 +86,24 @@ body{
   transition: 150ms ease;
 }
 
-.formContainer input:focus{
+.formContainer input:focus {
   outline: none;
   border-color: #3d3d3d;
 }
 
-div:has(input:focus) > label{
+div:has(input:focus) > label {
   background-color: #3d3d3d;
 }
 
-.formContainer input:hover{
+.formContainer input:hover {
   border-color: #739596;
 }
 
-.formContainer input::placeholder{
+.formContainer input::placeholder {
   color: #2e2b41;
 }
 
-.formContainer textarea{
+.formContainer textarea {
   flex-grow: 1;
   box-sizing: border-box;
   font: inherit;
@@ -117,11 +117,11 @@ div:has(input:focus) > label{
   resize: none;
 }
 
-.formContainer textarea:hover{
+.formContainer textarea:hover {
   border-color: #739596;
 }
 
-.formContainer textarea:focus{
+.formContainer textarea:focus {
   outline: none;
   border-color: #3d3d3d;
 }
@@ -130,21 +130,20 @@ div:has(textarea:focus) > label {
   background-color: #3d3d3d;
 }
 
-.formContainer textarea::placeholder{
+.formContainer textarea::placeholder {
   color: #2e2b41;
 }
 
-.messageIcon{
+.messageIcon {
   height: auto;
 }
 
-
-.conBtn{
+.conBtn {
   cursor: pointer;
   border: none;
   border-radius: 3px;
   margin-top: 10px;
-  padding: .85em 4em;
+  padding: 0.85em 4em;
   background-color: #739596;
   color: #ffffff;
   font: inherit;
@@ -153,25 +152,25 @@ div:has(textarea:focus) > label {
   transition: 150ms ease;
 }
 
-.conBtn:hover{
+.conBtn:hover {
   background-color: #3d3d3d;
 }
 
-.conBtn:focus{
+.conBtn:focus {
   background-color: #3d3d3d;
   outline: none;
 }
 
-#linkTxt{
+#linkTxt {
   text-decoration: none;
   color: #739596;
 }
 
-#linkTxt:hover{
+#linkTxt:hover {
   text-decoration: underline;
 }
 
-#logo{
+#logo {
   position: absolute;
   top: 25px;
   left: 25px;
@@ -184,7 +183,7 @@ div:has(textarea:focus) > label {
   transform: translateY(-8px);
 }
 
-#conError{
+#conError {
   width: 100%;
   margin-top: -30px;
   margin-bottom: 20px;
@@ -195,21 +194,25 @@ div:has(textarea:focus) > label {
   margin: 2rem 0;
 }
 
-form div.incorrect label{
+#userGreet{
+  margin: 2rem 0;
+}
+
+form div.incorrect label {
   background-color: #eb5062;
 }
-form div.incorrect input{
+form div.incorrect input {
   border-color: #eb5062;
 }
 
-form div.incorrect textarea{
+form div.incorrect textarea {
   border-color: #eb5062;
 }
 
-@media(max-width: 1100px){
-  .container-wrapper{
-      width: min(600px, 100%);
-      border-radius: 0;
+@media (max-width: 1100px) {
+  .container-wrapper {
+    width: min(600px, 100%);
+    border-radius: 0;
   }
 }
 
