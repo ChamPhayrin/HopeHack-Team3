@@ -47,25 +47,26 @@
        
 
       <div id="aiornot-container">
-  <form id="ai-form">
+  <form id="ai-form" enctype="multipart/form-data">
     <div id="form-left">
-      <h1>Is it AI?</h1>
-      <div id="image-container">
-        <img id="uploadedImage" src="../img/logo.png" alt="Uploaded Image">
-      </div>
+        <h1>Is it AI?</h1>
+        <div id="image-container">
+            <img id="uploadedImage" src="../img/logo.png" alt="Uploaded Image">
+        </div>
     </div>
     <div id="form-right">
-      <h3 id="aiProbability">AI Probability: --</h3>
-      <div id="aiResult">
-        <p id="aiResult-text">
-        </p>
-      </div>
-      <input type="file" name="image" id="imageUpload" accept="image/*" />
-      <button type="submit" id="form-btn" class="mainBtn">Check</button>
+        <h3 id="aiProbability">AI Probability: --</h3>
+        <div id="aiResult">
+            <p id="aiResult-text"></p>
+        </div>
+        <input type="file" name="image" id="imageUpload" accept="image/*" />
+        <button type="submit" id="form-btn" class="mainBtn">Check</button>
     </div>
-  </form>
+</form>
+
 </div>
     </main>
      {{>footer}}
+     <script src="./js/aiOrNotClient.js"></script>
   </body>
 </html>

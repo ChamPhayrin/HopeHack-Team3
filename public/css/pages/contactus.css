@@ -191,6 +191,10 @@ div:has(textarea:focus) > label {
   color: #eb5062;
 }
 
+#userGreet{
+  margin: 2rem 0;
+}
+
 form div.incorrect label{
   background-color: #eb5062;
 }
