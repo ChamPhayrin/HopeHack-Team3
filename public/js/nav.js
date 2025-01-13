@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Get modal and buttons
   const modal = document.getElementById("profile-modal");
   const profileIcon = document.getElementById("profile-icon");
+  const profileIconSide = document.getElementById('profile-icon-side');
   const joinBtn = document.getElementById("join-btn");
   const loginBtn = document.getElementById("login-btn");
 
@@ -35,11 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
   profileIcon.addEventListener("click", function () {
     modal.style.display = "flex"; // Show the modal
   });
+  
+  profileIconSide.addEventListener("click", () =>{
+    modal.style.display = "flex"; // Show the modal
+  })
 
   // Close the modal when you click on the background (outside the modal content)
   window.addEventListener("click", function (event) {
     if (event.target === modal) {
       modal.style.display = "none"; // Hide the modal
+      console.log('click')
     }
   });
 
