@@ -1,4 +1,7 @@
-
+body{
+  width: 100vw;
+  overflow: hidden;
+}
 h1, h2 {
   letter-spacing: 1px;
   margin: 0;

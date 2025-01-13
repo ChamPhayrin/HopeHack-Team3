@@ -56,8 +56,8 @@ form.addEventListener("submit", async function (e) {
         errorMessage.innerHTML = errorMessages.join("<br>");
     } else {
         //if no errors, reset form and show success notifications
-        alert('Thank you!');
         form.reset();
+        window.location.href = '/login';
         errorMessage.textContent = ""; // CLear any error text
     }
 });

@@ -187,7 +187,7 @@ app.post("/signin", (req, res) => {
 	if (!password) return res.send({ error: "Please enter password" });
 	if (!email) return res.send({ error: "Please enter email" });
 
-	const selectEmailQ = `SELECT email, password, first_name, last_name, user_id, is_admin FROM users WHERE email = '${email}'`;
+	const selectEmailQ = `SELECT email, password, first_name, last_name, user_id, FROM users WHERE email = '${email}'`;
 
 	connection.query(selectEmailQ, (err, result) => {
 		if (err) throw err;
