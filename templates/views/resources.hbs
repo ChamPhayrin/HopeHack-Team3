@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/pages/resources.css" />
     <link rel="icon" href="/assets/museLogo.png">
+    <link rel="stylesheet" href="../css/pages/aiOrNot.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <title>Resources</title>
   </head>
   <body>
@@ -44,20 +46,25 @@
 
        
 
-      <section class="text-row">
-        <div class="allContent">
-        <div class="content1">
-        <h2 class="connect-h2" >Connect to the art community</h2>
-
-        <p class="para-quote" >Explore these creative communities to share your work, connect with fellow artists, and find inspiration.</p>
-        </div>
-        </div>
-       
-        <div class="text-row-items">
-          <p class="p-Community"><a class="community-connect" href="https://www.linkedin.com/groups/12684660/">ART DECO & ART NOUVEAU COMMUNITY</a></p>
-          <p class="p-Community"><a class="community-connect" href="https://www.linkedin.com/groups/4472701/">Museum and Art Gallery Exhibitions & Events</a></p>
-        </div>
-      </section>
+      <div id="aiornot-container">
+  <form id="ai-form">
+    <div id="form-left">
+      <h1>Is it AI?</h1>
+      <div id="image-container">
+        <img id="uploadedImage" src="../img/logo.png" alt="Uploaded Image">
+      </div>
+    </div>
+    <div id="form-right">
+      <h3 id="aiProbability">AI Probability: --</h3>
+      <div id="aiResult">
+        <p id="aiResult-text">
+        </p>
+      </div>
+      <input type="file" name="image" id="imageUpload" accept="image/*" />
+      <button type="submit" id="form-btn" class="mainBtn">Check</button>
+    </div>
+  </form>
+</div>
     </main>
      {{>footer}}
   </body>

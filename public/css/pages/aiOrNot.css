@@ -1,8 +1,8 @@
 /* Container Styles */
 #aiornot-container {
-  width: 90%;
-  height: 40vh;
-  max-width: 800px;
+  width: 90%;  /* Set to 90% width for better responsiveness */
+  max-width: 1000px;  /* Max width for larger screens */
+  height: auto;
   margin: 5rem auto;
   padding: 2rem;
   background-color: #f9f9f9;
@@ -34,7 +34,7 @@
 }
 
 #form-left h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;  /* Larger font size for headings */
   color: #333;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -70,7 +70,7 @@
 }
 
 #form-right h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;  /* Slightly larger font size */
   margin-bottom: 1rem;
   color: #555;
   font-weight: 500;
@@ -116,7 +116,6 @@
   outline: none;
 }
 
-
 /* AI Probability Display */
 #aiProbability {
   font-size: 1.2rem;
@@ -131,14 +130,88 @@
 }
 
 /* Media Queries */
-@media screen and (max-width: 768px) {
-  #ai-form {
-    grid-template-columns: 1fr;
-    gap: 15px;
+
+/* For tablets and smaller devices */
+@media screen and (max-width: 1024px) {
+  #aiornot-container {
+    width: 95%;
+    margin: 3rem auto;
+    padding: 1.5rem;
+  }
+
+  #form-left h1 {
+    font-size: 1.8rem; /* Slightly smaller header size */
+  }
+
+  #form-right h3 {
+    font-size: 1.1rem; /* Adjust font size */
   }
 
   .mainBtn {
     max-width: 100%;
+  }
+
+  #ai-form {
+    grid-template-columns: 1fr 1fr; /* Two-column layout on tablet */
+  }
+}
+
+/* For mobile devices */
+@media screen and (max-width: 768px) {
+  #aiornot-container {
+    width: 100%;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  #ai-form {
+    grid-template-columns: 1fr;  /* Single-column layout on mobile */
+    gap: 15px;
+  }
+
+  #form-left h1 {
+    font-size: 1.5rem; /* Adjust header size for mobile */
+  }
+
+  #form-right h3 {
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  #uploadedImage {
+    max-width: 80%; /* Limit image width on mobile */
+  }
+
+  .mainBtn {
+    width: 100%;
+    max-width: none;  /* Button takes full width on mobile */
+  }
+
+  #image-container {
+    max-height: 250px;  /* Limit image container size on smaller screens */
+  }
+}
+
+/* For very small devices (e.g., portrait phones) */
+@media screen and (max-width: 480px) {
+  #aiornot-container {
+    padding: 1rem;
+    margin: 1.5rem auto;
+  }
+
+  #form-left h1 {
+    font-size: 1.3rem;  /* Further reduce font size */
+  }
+
+  #form-right h3 {
+    font-size: 0.9rem;  /* Further reduce font size */
+  }
+
+  .mainBtn {
+    padding: 0.8rem;  /* Adjust padding for smaller screens */
+  }
+
+  #uploadedImage {
+    max-width: 90%;  /* Ensure image fits well on very small screens */
   }
 }
 
