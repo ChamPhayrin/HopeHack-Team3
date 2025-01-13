@@ -26,7 +26,10 @@ header {
   border-radius: 3px;
   align-self: flex-start;
 }
-
+.abtUs-slide:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
 .abtUs-heading--mission {
   margin-left: 10%;
   font-size: 4rem;
@@ -109,6 +112,9 @@ header {
 .abtUs-slide:hover p {
   opacity: 1;
   color: var(--color-text);
+}
+.abtUs-slide:hover {
+  opacity: 0.8;
 }
 .abtUs-slide:hover {
   opacity: 0.8;
