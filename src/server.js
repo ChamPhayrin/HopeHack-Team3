@@ -51,8 +51,7 @@ app.get("/", (req, res) => {
 	res.render("index", {
 		// Render the 'index' view
 		title: "Muse",
-		description:
-			"Welcome to Muse, where we challenge the growing influence of AI in the art world. Explore the rich history of human-created art and learn how AI is erasing traditional craftsmanship, overshadowing human creativity, and threatening the preservation of our artistic heritage.",
+		description: `“The purpose of art is washing the dust of daily life off our souls.” – Pablo Picasso.`,
 	});
 });
 
@@ -61,18 +60,24 @@ app.get("/aboutus", (req, res) => {
 	res.render("aboutus", {
 		// Render the 'aboutUs' view
 		title: "About Us",
-		description:
-			"Muse is committed to raising awareness about how AI is threatening the authenticity and legacy of human-made art. We believe that AI-driven art not only erases the value of history but also undermines the very essence of creative expression by displacing traditional artists.",
-	});
+		description:` "I never painted my dreams, I painted my own reality" -  Frida Kahlo`	});
 });
 
 // Login route
 app.get("/login", (req, res) => {
 	res.render("login", {
 		// Render the 'login' view
-		title: "Login",
+		title: "Login"
+	});
+});
+
+// Admin route
+app.get("/admin", (req, res) => {
+	res.render("admin", {
+		// Render the 'login' view
+		title: "Admin",
 		description:
-			"Log in to ArtFuture to join the conversation on how AI is undermining the legacy of human-made art. If you're new, sign up to start learning about the dangers of AI-driven art and why it’s crucial to preserve our artistic history.",
+			`"I dream of painting and then I paint my dream". Van Gogh also said, "I am seeking. I am striving. I am in it with all my heart".`,
 	});
 });
 
@@ -80,9 +85,7 @@ app.get("/login", (req, res) => {
 app.get("/signup", (req, res) => {
 	res.render("signup", {
 		// Render the 'signUp' view
-		title: "Sign up",
-		description:
-			"Sign up to become part of Muse's community that’s fighting to protect human creativity from the rise of AI in art. Gain access to discussions, resources, and tools dedicated to preserving the integrity of traditional art forms and the artists who created them.",
+		title: "Sign up"
 	});
 });
 
@@ -101,8 +104,7 @@ app.get("/explore", (req, res) => {
 	res.render("explore", {
 		// Render the 'explore' view
 		title: "Explore",
-		description:
-			"Browse Search for artworks from the Art Institute of Chicago’s collection and view key details like title, artist, and description. Descriptions are cleaned for clarity, and each artwork is displayed with a high-quality image. Explore the richness of human-made art while considering how AI is transforming the creative landscape. art that represents the legacy of human creativity and the ongoing battle against AI’s intrusion into the art world. Use our search tools to uncover how AI-generated art lacks the depth and humanity of traditional masterpieces, and see why preserving human-created art is more urgent than ever.",
+		description: `"No great artist ever sees things as they really are. If he did, he would cease to be an artist" - Oscar Wilde`
 	});
 });
 
@@ -110,9 +112,7 @@ app.get("/explore", (req, res) => {
 app.get("/contactus", (req, res) => {
 	res.render("contactus", {
 		// Render the 'explore' view
-		title: "Contact Us",
-		description:
-			"Have questions about the Art Institute of Chicago’s collection? Reach out to us for details on artworks, artists, and how we’re preserving human creativity in an age of AI-driven art.",
+		title: "Contact Us"
 	});
 });
 
@@ -139,6 +139,18 @@ app.get("/q", async (req, res) => {
 		return res.status(500).send("Error fetching data");
 	}
 });
+
+app.get('/getMessages', (req, res) =>{
+
+	const selectMessages = `SELECT * FROM contact_us`
+
+	connection.query(selectMessages, (err, result) => {
+		if (err) throw err;
+		return res.send({
+			messages: result
+		})
+	})
+})
 
 app.post("/register", (req, res) => {
 	const { firstname, lastname, email, password } = req.body;
@@ -175,7 +187,7 @@ app.post("/signin", (req, res) => {
 	if (!password) return res.send({ error: "Please enter password" });
 	if (!email) return res.send({ error: "Please enter email" });
 
-	const selectEmailQ = `SELECT email, password, first_name, last_name, user_id FROM users WHERE email = '${email}'`;
+	const selectEmailQ = `SELECT email, password, first_name, last_name, user_id, is_admin FROM users WHERE email = '${email}'`;
 
 	connection.query(selectEmailQ, (err, result) => {
 		if (err) throw err;

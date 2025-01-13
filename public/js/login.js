@@ -51,6 +51,7 @@ form.addEventListener("submit", async function (e) {
 					localStorage.setItem("first_name", userData.first_name);
 					localStorage.setItem("last_name", userData.last_name);
 					localStorage.setItem("email", userData.email);
+					localStorage.setItem("is_admin", userData.is_admin)
 					window.location.href = "/";
 				}
 			}

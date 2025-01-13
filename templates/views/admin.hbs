@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/pages/admin.css">
+  <link rel="stylesheet" href="../css/pages/navbarFooter.css">
+  <script src="https://kit.fontawesome.com/5e3005e55e.js" crossorigin="anonymous"></script>
+  <title>{{title}}</title>
+</head>
+<body>
+  {{>navbar}}
+  <main>
+    <div id="container-greet">
+      <h1 >Welcome, Admin!</h1>
+    </div>
+    <section id="container-messages">
+      <section class="messages">
+        <div class="messages-wrapper">
+          <h2 class="messages-header">Your Messages</h2>
+          <!-- Correct the target class to .messages-container -->
+          <div class="messages-container"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="./js/admin.js"></script>
+  <script type="module" src="./js/nav.js"></script>
+  {{>footer}}
+</body>
+</html>

@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const joinBtn = document.getElementById("join-btn");
 	const loginBtn = document.getElementById("login-btn");
 	const logoutBtn = document.getElementById("logout-btn");
+	const adminBtn = document.getElementById('admin-btn')
 
 	// Open the modal when the profile icon is clicked
 	profileIcon.addEventListener("click", function () {
@@ -63,11 +64,33 @@ document.addEventListener("DOMContentLoaded", () => {
 			nameDisplay.innerHTML = `Name: ${capitalizeString(
 				localStorage.getItem("first_name")
 			)} ${capitalizeString(localStorage.getItem("last_name"))}`;
+
 			// Logout button
 			logoutBtn.addEventListener("click", () => {
 				localStorage.clear();
 				window.location.href = "/";
 			});
+
+
+
+			
+
+      // Show admin button if the user is an admin
+      if (localStorage.getItem('is_admin') === '1') {
+        adminBtn.style.display = "block"; // Show the admin button
+        adminBtn.addEventListener('click', () => {
+          window.location.href = "/admin";  // Redirect to the admin page
+        });
+      } else {
+        adminBtn.style.display = "none"; // Hide the admin button if not an admin
+      }
+
+
+
+
+
+
+
 		} else {
 			modal.style.display = "flex"; // Show the modal
 
