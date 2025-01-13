@@ -13,17 +13,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="../css/pages/contact.css" />
-    <link rel="icon" href="/img/mlogo.png" />
+    <link rel="icon" href="/img/mLogo.png" />
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <title>Contact Us</title>
   </head>
+
   <body>
     <div class="con-wrapper">
-      <a href="/"><img id="logo" src="/images/mLogo.png" alt="Muse logo" /></a>
+      <a href="/"><img id="logo" src="/img/mlogo.png" alt="Muse logo" /></a>
       <h1 class="conTitle">Contact Us</h1>
       <h3 id="userGreet"></h3>
+
+      <!-- Error message display -->
       <p id="conError"></p>
-      <form id="conContainer">
+
+      <!-- Contact Form -->
+      <form class="formContainer" id="conContainer">
         <div id="conName-container">
           <label for="nameInput">
             <i class="fa-solid fa-user"></i>
@@ -40,25 +45,36 @@
           <label for="messageInput">
             <i class="fa-solid fa-comment"></i>
           </label>
-          <textarea
-            name="message"
-            id="conMsg"
-            placeholder="Your message"
-          ></textarea>
+          <textarea name="message" id="conMsg" placeholder="Your message"></textarea>
         </div>
         <button class="conBtn" type="submit">Send Message</button>
       </form>
+
+      <!-- Go Back to Home -->
       <p>Got back to <a id="linkTxt" href="/">Home</a></p>
 
-    <div id="con-container-modal" class="modal">
-    <div class="modal-content">
-      <h1 class="modal-text-display" id="modal-greet">Redirecting...</h1>
-      <h4 class="modal-text-display" id="modal-thanks">Thank you for your message! We'll be in contact with you shortly.</h4>
-      <div class="modal-loading-animation"><dotlottie-player src="https://lottie.host/d9dcbbf2-e089-4f1e-b68f-174b91004cbd/6suaGyg4gT.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player> </div>
-    </div>
+      <!-- Modal -->
+      <div id="con-container-modal" class="modal">
+        <div class="modal-content">
+          <h1 class="modal-text-display" id="modal-greet">Redirecting...</h1>
+          <h4 class="modal-text-display" id="modal-thanks">
+            Thank you for your message! We'll be in contact with you shortly.
+          </h4>
+          <div class="modal-loading-animation">
+            <dotlottie-player
+              src="https://lottie.host/d9dcbbf2-e089-4f1e-b68f-174b91004cbd/6suaGyg4gT.lottie"
+              background="transparent"
+              speed="1"
+              style="width: 300px; height: 300px"
+              loop
+              autoplay
+            ></dotlottie-player>
+          </div>
+        </div>
+      </div>
     </div>
 
-    </div>
+    <!-- Script -->
     <script src="/js/contact.js"></script>
   </body>
 </html>

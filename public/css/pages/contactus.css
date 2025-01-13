@@ -4,20 +4,23 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
+body{
   font-size: 12pt;
-  color: #2e2b41;
+  color: #2E2B41;
   text-align: center;
   min-height: 100vh;
-  background-color: #658485;
+  background-image: url(/img/contactB.png);
+  background-size: 100%;
+  background-color: #3d3d3d;
   background-position: right;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-.con-wrapper {
+.con-wrapper{
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -25,77 +28,123 @@ body {
   height: 100vh;
   padding: 10px;
   width: 90%;
-  max-width: 600px;
-  border-radius: 40px 40px 40px 40px;
+  max-width: 900px;
+  border-radius: 5px 5px 5px 5px;
   align-items: center;
   justify-content: center;
   position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-#logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 80px;
-  height: auto;
-  cursor: pointer;
-}
-.conTitle {
+
+.conTitle{
   text-transform: uppercase;
   font-size: 3rem;
   font-weight: 900;
-  margin-bottom: 20px;
 }
-#conContainer > div {
+
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(400px, 100%);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  gap: 10px;
+}
+
+.formContainer > div{
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 10%;
-  gap: 15px;
 }
-#conContainer label {
+
+.formContainer label {
   font-size: 1.5rem;
   flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 100%;
   width: 50px;
   background-color: #739596;
   fill: #ffffff;
   color: rgb(255, 255, 255);
-  border-radius: 10px 0 0 10px;
+  border-radius: 3px 0 0 3px
 }
-#conContainer input {
+
+.formContainer input{
   flex-grow: 1;
   box-sizing: border-box;
-  font: inherit;
+  font: inherit; 
   min-width: 0;
   height: 50px;
   padding: 1em;
   border-left: none;
   border: 2px solid #b1cccc7a;
-  border-radius: 0 10px 10px 0;
+  border-radius: 3px;
   background-color: #b1cccc7a;
   transition: 150ms ease;
 }
-#conContainer input:focus {
+
+.formContainer input:focus{
   outline: none;
   border-color: #3d3d3d;
 }
 
-#conContainer input:hover {
+div:has(input:focus) > label{
+  background-color: #3d3d3d;
+}
+
+.formContainer input:hover{
   border-color: #739596;
 }
 
-#conContainer input::placeholder {
+.formContainer input::placeholder{
   color: #2e2b41;
 }
-.conBtn {
+
+.formContainer textarea{
+  flex-grow: 1;
+  box-sizing: border-box;
+  font: inherit;
+  min-width: 0;
+  height: 120px;
+  padding: 1em;
+  border: 2px solid #b1cccc7a;
+  border-radius: 3px;
+  background-color: #b1cccc7a;
+  transition: 150ms ease;
+  resize: none;
+}
+
+.formContainer textarea:hover{
+  border-color: #739596;
+}
+
+.formContainer textarea:focus{
+  outline: none;
+  border-color: #3d3d3d;
+}
+
+div:has(textarea:focus) > label {
+  background-color: #3d3d3d;
+}
+
+.formContainer textarea::placeholder{
+  color: #2e2b41;
+}
+
+.messageIcon{
+  height: auto;
+}
+
+
+.conBtn{
   cursor: pointer;
   border: none;
-  border-radius: 1000px;
+  border-radius: 3px;
   margin-top: 10px;
-  padding: 0.85em 4em;
+  padding: .85em 4em;
   background-color: #739596;
   color: #ffffff;
   font: inherit;
@@ -104,59 +153,59 @@ body {
   transition: 150ms ease;
 }
 
-.conBtn:hover {
+.conBtn:hover{
   background-color: #3d3d3d;
 }
 
-.conBtn:focus {
+.conBtn:focus{
+  background-color: #3d3d3d;
   outline: none;
-  background-color: #3d3d3d;
 }
 
-#linkTxt {
+#linkTxt{
   text-decoration: none;
   color: #739596;
 }
 
-#linkTxt:hover {
+#linkTxt:hover{
   text-decoration: underline;
 }
 
-@media (max-width: 1100px) {
-  .container-wrapper {
-    width: 100%;
-    border-radius: 0;
-  }
-  #logo {
-    width: 90px; /* Adjust logo size on smaller screens */
-  }
+#logo{
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 67px;
+  height: auto;
+  cursor: pointer;
 }
-#conMsg {
+
+#logo:hover {
+  transform: translateY(-8px);
+}
+
+#conError{
   width: 100%;
-  height: 150px;
-  padding: 3rem;
-  font-size: 1.2rem;
-  border: 2px solid #b1cccc7a;
-  border-radius: 10px;
-  background-color: #f2f2f2;
-  box-sizing: border-box;
-  resize: vertical;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  color: #eb5062;
 }
-@media (max-width: 600px) {
-  body {
-    font-size: 12pt;
 
-    .mainTitle {
-      font-size: 2rem;
-    }
+form div.incorrect label{
+  background-color: #eb5062;
+}
+form div.incorrect input{
+  border-color: #eb5062;
+}
 
-    #formContainer input {
-      height: 45px;
-    }
+form div.incorrect textarea{
+  border-color: #eb5062;
+}
 
-    .mainBtn {
-      padding: 0.85em 3em;
-    }
+@media(max-width: 1100px){
+  .container-wrapper{
+      width: min(600px, 100%);
+      border-radius: 0;
   }
 }
 

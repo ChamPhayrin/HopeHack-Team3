@@ -5,51 +5,69 @@ document.addEventListener("DOMContentLoaded", () => {
   const messageInput = document.getElementById("conMsg");
   const errorMessage = document.getElementById("conError");
   const nameDisplay = document.getElementById('conName-container');
-  const emailDisplay = document.getElementById('conEmail-container')
-  const userGreet = document.getElementById('userGreet')
+  const emailDisplay = document.getElementById('conEmail-container');
+  const userGreet = document.getElementById('userGreet');
 
-  if(localStorage.getItem('user_id')){
-    nameDisplay.style.display = 'none'
-    emailDisplay.style.display = 'none'
-    userGreet.innerHTML = `Hi, ${localStorage.getItem('first_name')} leave us a message!`
+  if (localStorage.getItem('user_id')) {
+    nameDisplay.style.display = 'none';
+    emailDisplay.style.display = 'none';
+    userGreet.innerHTML = `Hi, ${localStorage.getItem('first_name')} leave us a message!`;
   }
 
   // Simple validation function
   function validateForm() {
     let isValid = true;
-    errorMessage.textContent = ""; // Clear previous error messages
-    form
-      .querySelectorAll("input, textarea")
-      .forEach((input) => (input.style.borderColor = ""));
+    let errorMessages = []; // Collect error messages
+    errorMessage.textContent = "";  // Clear previous errors
+    form.querySelectorAll(".incorrect").forEach((div) => div.classList.remove("incorrect"));
 
-    if(localStorage.getItem('user_id')) {
-      if (!messageInput.value.trim()) {
-        isValid = false;
-        messageInput.style.borderColor = "#ff0000";
-        errorMessage.textContent = "Please enter your message.";
-      }
-    } else {
+    // Validate name
+    if (!localStorage.getItem('user_id')) {
       if (!nameInput.value.trim()) {
         isValid = false;
-        nameInput.style.borderColor = "#ff0000";
-        errorMessage.textContent = "Please enter your full name.";
-      }
-  
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value)) {
+        errorMessages.push("Full name is required.");
+        showError(nameInput);
+      } else if (nameInput.value.trim().length < 2) {
         isValid = false;
-        emailInput.style.borderColor = "#ff0000";
-        errorMessage.textContent = "Please enter a valid email address.";
-      }
-  
-      if (!messageInput.value.trim()) {
+        errorMessages.push("Full name must be at least 2 characters.");
+        showError(nameInput);
+      } else if (nameInput.value.trim().length > 40) {
         isValid = false;
-        messageInput.style.borderColor = "#ff0000";
-        errorMessage.textContent = "Please enter your message.";
+        errorMessages.push("Full name must be less than 40 characters.");
+        showError(nameInput);
       }
     }
 
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!localStorage.getItem('user_id') && (!emailInput.value.trim() || !emailRegex.test(emailInput.value))) {
+      isValid = false;
+      errorMessages.push("Please enter a valid email address.");
+      showError(emailInput);
+    }
+
+    // Validate message
+    if (!messageInput.value.trim()) {
+      isValid = false;
+      errorMessages.push("Message is required.");
+      showError(messageInput);
+    } else if (messageInput.value.trim().length < 10) {
+      isValid = false;
+      errorMessages.push("Message must be at least 10 characters long.");
+      showError(messageInput);
+    }
+
+    // Show error messages if any
+    if (errorMessages.length > 0) {
+      errorMessage.innerHTML = errorMessages.join("<br>");
+    }
+
     return isValid;
+  }
+
+  function showError(input) {
+    const parentDiv = input.parentElement;
+    parentDiv.classList.add("incorrect");
   }
 
   // Handle form submission
@@ -57,54 +75,36 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault(); // Prevent form submission
 
     if (validateForm()) {
-      if(localStorage.getItem('user_id')){
-        try {
-          fetch('/contactMessage',  {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              user_id: localStorage.getItem('user_id'),
-              full_name: null,
-              email: null,
-              message: messageInput.value
-            })
-          })
+      const data = {
+        user_id: localStorage.getItem('user_id') || null,
+        full_name: localStorage.getItem('user_id') ? null : nameInput.value,
+        email: localStorage.getItem('user_id') ? null : emailInput.value,
+        message: messageInput.value
+      };
 
-          const modalDisplay = document.getElementById('con-container-modal');
-          modalDisplay.style.display = 'flex'
+      try {
+        fetch('/contactMessage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
 
-          setTimeout(() => {
-            window.location.href = '/'
-          }, 3000);
+        // Show success modal and reset form
+        const modalDisplay = document.getElementById('con-container-modal');
+        modalDisplay.style.display = 'flex';
 
-        } catch (err) {
-          console.log(err)
-        }
-
-      } else {
-        try {
-          fetch('/contactMessage',  {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              user_id: null,
-              full_name: nameInput.value,
-              email: emailInput.value,
-              message: messageInput.value
-            })
-          })
-
-          const modalDisplay = document.getElementById('con-container-modal');
-          modalDisplay.style.display = 'flex'
-
-          setTimeout(() => {
-            window.location.href = '/'
-          }, 3000);
-        } catch (err) {
-          console.log(err)
-        }
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 3000);
+        
+        // Clear form and reset error states
+        form.reset();
+        form.querySelectorAll(".incorrect").forEach((div) => div.classList.remove("incorrect"));
+        errorMessage.textContent = "";
+        
+      } catch (err) {
+        console.log(err);
       }
     }
   });
 });
-
