@@ -8,31 +8,52 @@ document.addEventListener("DOMContentLoaded", () => {
   // Simple validation function
   function validateForm() {
     let isValid = true;
-    errorMessage.textContent = ""; // Clear previous error messages
-    form
-      .querySelectorAll("input, textarea")
-      .forEach((input) => (input.style.borderColor = ""));
+    let errorMessages = []; // Collect error messages
 
+    errorMessage.textContent = "";
+    form.querySelectorAll(".incorrect").forEach((div) => div.classList.remove("incorrect"));
+
+    //Name validation
     if (!nameInput.value.trim()) {
       isValid = false;
-      nameInput.style.borderColor = "#ff0000";
-      errorMessage.textContent = "Please enter your full name.";
+      errorMessages.push("Full name is required");
+      showError(nameInput);
+    } else if (nameInput.value.trim().length < 2) {
+      isValid = false;
+      errorMessages.push("Full name must be at least 2 characters long");
+      showError(nameInput);
+    } else if (nameInput.value.trim().length > 40) {
+      isValid = false;
+      errorMessages.push("Full name must be less than 40 characters long");
+      showError(nameInput);
     }
 
+    //Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailInput.value.trim() || !emailRegex.test(emailInput.value)) {
       isValid = false;
-      emailInput.style.borderColor = "#ff0000";
-      errorMessage.textContent = "Please enter a valid email address.";
+      errorMessages.push("Please  enter a valid email address");
+      showError(emailInput);
     }
 
     if (!messageInput.value.trim()) {
       isValid = false;
-      messageInput.style.borderColor = "#ff0000";
-      errorMessage.textContent = "Please enter your message.";
+      errorMessages.push("Message is required");
+      showError(messageInput);
+    } else if (messageInput.value.trim().length < 10) {
+      isValid = false;
+      errorMessages.push("Message must be at least 10 characters long");
+      showError(messageInput);
     }
-
+    if (errorMessages.length > 0) {
+      errorMessage.innerHTML = errorMessages.join("<br>")
+    }
     return isValid;
+  }
+
+  function showError(input) {
+    const parentDiv = input.parentElement;
+    parentDiv.classList.add("incorrect")
   }
 
   // Handle form submission
@@ -40,7 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault(); // Prevent form submission
 
     if (validateForm()) {
-      form.submit(); // Submit the form if valid
+      alert('Thank you')
+      form.reset();
+      errorMessage.textContent = "";
+      form.querySelectorAll(".incorrect").forEach((div) => div.classList.remove("incorrect"))
     }
   });
 });
