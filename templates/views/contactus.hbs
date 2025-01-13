@@ -13,15 +13,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="../css/pages/contact.css" />
-    <link rel="icon" href="/img/mlogo.png" />
+    <link rel="icon" href="/img/mLogo.png" />
     <title>Contact Us</title>
   </head>
-  <body>
-    <div class="con-wrapper">
-      <a href="/"><img id="logo" src="/images/mLogo.png" alt="Muse logo" /></a>
-      <h1 class="conTitle">Contact Us</h1>
-      <p id="conError"></p>
-      <form id="conContainer">
+<body>
+  <div class="con-wrapper">
+    <a href="/"><img id="logo" src="/img/mlogo.png" alt="Muse logo" /></a>
+    <h1 class="conTitle">Contact Us</h1>
+      <form class="formContainer" id="conContainer">
         <div>
           <label for="nameInput">
             <i class="fa-solid fa-user"></i>
@@ -38,17 +37,13 @@
           <label for="messageInput">
             <i class="fa-solid fa-comment"></i>
           </label>
-          <textarea
-            name="message"
-            id="conMsg"
-            placeholder="Your message"
-          ></textarea>
+          <textarea name="message" id="conMsg" placeholder="Your message"></textarea>
         </div>
         <button class="conBtn" type="submit">Send Message</button>
       </form>
-      <p>Got back to <a id="linkTxt" href="/">Home</a></p>
-
-    </div>
-    <script src="/js/contact.js"></script>
-  </body>
+    <p id="conError"></p>
+    <p>Want to go back? <a id="linkTxt" href="/">Home</a></p>
+  </div>
+  <script src="/js/contact.js"></script>
+</body>
 </html>
