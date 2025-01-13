@@ -9,10 +9,10 @@ body{
     color: #2E2B41;
     text-align: center;
     min-height: 100vh;
-    background-image: url(/img/loginB.png);
+    background-image: url(/img/24.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: #658485;
+    background-color: #3d3d3d;
     background-position: right;
     overflow: hidden;
 }
