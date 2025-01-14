@@ -270,7 +270,20 @@ app.post('/aiOrNot', async (req, res) => {
     return res.status(400).send({ error: 'Invalid file type, only images allowed' });
   }
 
-  const filePath = `../public/userImages/${image.name}`;
+  // Resolve the absolute path for the 'public/userImages' directory
+  const dirPath = path.resolve(__dirname, 'public', 'userImages');
+  console.log('Resolved directory path:', dirPath);  // Debugging line
+
+  // Ensure the 'userImages' directory exists
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+    console.log('Created directory:', dirPath);
+  }
+
+  // Generate a unique filename using a timestamp and random string
+  const uniqueFileName = `${Date.now()}-${Math.random().toString(36).substring(2, 15)}-${image.name}`;
+  const filePath = path.join(dirPath, uniqueFileName);
+  console.log('File path to save image:', filePath);  // Debugging line
 
   try {
     // Move the uploaded file to the desired location
