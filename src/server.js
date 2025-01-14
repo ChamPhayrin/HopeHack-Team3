@@ -242,29 +242,49 @@ app.get("/getSearch", (req, res) =>{
 })
 
 
-app.post('/contactMessage', (req, res) =>{
-	const {user_id, full_name, email, message} = req.body
+app.post('/contactMessage', (req, res) => {
+  const { user_id, email, message } = req.body; // Destructure to get user_id, email, and message
 
-	if(user_id){
-		app.get('/getFullName', (req, res) =>{
-			const {user_id,  first_name,  last_name} = req.body  
-			const selectIdQ = `SELECT first_name, last_name FROM users WHERE user_id = ${user_id}`
-			connection.query(selectIdQ, (err, result)  =>{
-				full_name = first_name + ' ' + last_name
-			})
-		})
-	}
+  if (!user_id || !email || !message) {
+    return res.status(400).send({ error: 'User ID, email, and message are required' });
+  }
 
-	const insertQ = "INSERT INTO contact_us (user_id, full_name, email, message) VALUES (?, ?, ?, ?)";
+  // Query to get first_name and last_name from users table
+  const selectIdQ = `SELECT first_name, last_name FROM users WHERE user_id = ?`;
 
-	const values = [user_id, full_name, email, message];
+  connection.query(selectIdQ, [user_id], (err, result) => {
+    if (err) {
+      console.error('Error querying user data:', err);
+      return res.status(500).send({ error: 'There was an error processing your request.' });
+    }
 
-	connection.query(insertQ, values, (err, result) => {
-		if (err) throw err;
-		res.send({success: 'Success!'})
-	})
+    if (result.length === 0) {
+      return res.status(404).send({ error: 'User not found' });
+    }
 
-})
+    // Retrieve first_name and last_name
+    const { first_name, last_name } = result[0];
+
+    // Create full_name from first_name and last_name
+    const full_name = `${first_name} ${last_name}`;
+
+    // Prepare the SQL query to insert into contact_us table
+    const insertQ = "INSERT INTO contact_us (user_id, full_name, email, message) VALUES (?, ?, ?, ?)";
+    
+    // Insert the values into the contact_us table
+    const values = [user_id, full_name, email, message];
+
+    connection.query(insertQ, values, (err, result) => {
+      if (err) {
+        console.error('Error inserting contact message:', err);
+        return res.status(500).send({ error: 'There was an error processing your message.' });
+      }
+
+      res.send({ success: 'Your message has been successfully submitted!' });
+    });
+  });
+});
+
 
 app.post('/aiOrNot', async (req, res) => {
   // Check if the 'image' file exists
