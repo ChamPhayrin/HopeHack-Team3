@@ -15,6 +15,12 @@ a {
   color: #3d3d3d;
 }
 
+#learning-title{
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem 0;
+}
+
 .community-connect {
   font-size: 30px;
   margin: 0;
