@@ -57,7 +57,7 @@ app.get("/", (req, res) => {
 
 // About Us route
 app.get("/aboutus", (req, res) => {
-	res.render("aboutus", {
+	res.render("aboutUs", {
 		// Render the 'aboutUs' view
 		title: "About Us",
 		description:` "I never painted my dreams, I painted my own reality" -  Frida Kahlo`	});
