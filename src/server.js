@@ -272,6 +272,11 @@ app.post('/aiOrNot', async (req, res) => {
 
   const filePath = path.join(publicDirectory, 'userImages', image.name);
 
+	if (!fs.existsSync(dirPath)) {
+		fs.mkdirSync(dirPath, { recursive: true });
+		console.log('Created directory:', dirPath);
+	}
+
   try {
     // Move the uploaded file to the desired location
     await image.mv(filePath);
