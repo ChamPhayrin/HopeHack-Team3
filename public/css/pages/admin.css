@@ -1,0 +1,180 @@
+header{
+  background-image: url('https://www.discoverlosangeles.com/sites/default/files/images/2019-01/Getty%20Center%20Van%20Gogh%20Irises.jpg?width=1600&height=1200&fit=crop&quality=78&auto=webp')!important;
+}
+
+body{
+  width: 100vw;
+}
+h1, h2 {
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+#container-greet {
+  padding: 3rem 0 0  5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Section Styling */
+#container-messages {
+  padding: 3rem 0;
+}
+
+.messages-wrapper {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.messages-header {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #20263E; /* Normal header text color */
+  text-align: left;
+  letter-spacing: 1px;
+}
+
+/* Message Container */
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Single Message Styling */
+.message-item {
+  background-color: #f3f5f7;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.message-item:hover {
+  background-color: #f9f9f9;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Checkbox and User Question Styling */
+.message-checkbox {
+  display: none;
+}
+
+.message-user {
+  font-size: 18px;
+  font-weight: 500;
+  color: #3d3d3d;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+.message-user:hover {
+  color: #739596; 
+}
+
+.message-icon {
+  color: #739596; 
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.message-user:hover .message-icon {
+  transform: translateX(6px); 
+}
+
+/* User Message Styling */
+.message-user-message {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  display: none;
+}
+
+.message-checkbox:checked + .message-user + .message-user-message {
+  display: block;
+  font-size: 16px;
+  color: #3d3d3d;
+  padding-left: 20px;
+  border-left: 3px solid #739596;
+  margin-top: 15px;
+}
+
+/* Timestamp Styling */
+.message-timestamp {
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 10px;
+  font-weight: 400;
+  text-align: left;
+  display: block;
+}
+
+.message-user-message a {
+  color: #739596;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.message-user-message a:hover {
+  color: #3d3d3d;
+  text-decoration: underline;
+}
+
+/* Hover effect for message item */
+.message-item:hover .message-user {
+  color: #739596; 
+}
+
+/* Styling for the email link */
+.message-email {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #739596;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.message-email:hover {
+  color: #3d3d3d;
+  text-decoration: underline;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .messages-wrapper {
+    padding: 0 15px;
+  }
+
+  .message-item {
+    padding: 20px;
+  }
+
+  .messages-header {
+    font-size: 2rem;
+  }
+}

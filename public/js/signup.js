@@ -1,18 +1,18 @@
-const form = document.getElementById("form")
-const firstName = document.getElementById('firstNameInput')
-const lastName = document.getElementById('lastNameInput')
-const email = document.getElementById('emailInput')
-const password = document.getElementById('passwordInput')
-const repeatPassword = document.getElementById('repeatPasswordInput')
-const errorMessage = document.getElementById("errorMessage")
+const form = document.getElementById("form");
+const firstName = document.getElementById("firstNameInput");
+const lastName = document.getElementById("lastNameInput");
+const email = document.getElementById("emailInput");
+const password = document.getElementById("passwordInput");
+const repeatPassword = document.getElementById("repeatPasswordInput");
+const errorMessage = document.getElementById("errorMessage");
 
 // Event listener for form
-form.addEventListener('submit', function (e) {
-    e.preventDefault(); //prevent form submition
+form.addEventListener("submit", async function (e) {
+	e.preventDefault(); //prevent form submition
 
-    // reset error styles and txt
-    clearErrors();
-    let errorMessages = [];
+	// reset error styles and txt
+	clearErrors();
+	let errorMessages = [];
 
     //first name validation
     if (firstName.value.trim() === ""){
@@ -56,29 +56,44 @@ form.addEventListener('submit', function (e) {
         errorMessage.innerHTML = errorMessages.join("<br>");
     } else {
         //if no errors, reset form and show success notifications
-        alert('Thank you!');
-        form.reset();
-        errorMessage.textContent = ""; // CLear any error text
+		errorMessage.textContent = ""; // CLear any error text
+		try {
+			const response = await fetch("/register", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					firstname: firstName.value,
+					lastname: lastName.value,
+					email: email.value,
+					password: password.value,
+				})
+			});
+			const data = await response.json();
+			if (response.ok) {  
+				if (data.error) {
+					errorMessage.textContent = data.error;
+				} else {
+                    window.location.href = '/login'
+                }
+			}
+		} catch (err) {
+			errorMessage.innerHTML = err;
+		}
     }
 });
 
 function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	return emailRegex.test(email);
 }
 
 function showError(input) {
-    const parentDiv = input.parentElement;
-    parentDiv.classList.add('incorrectTxt');
+	const parentDiv = input.parentElement;
+	parentDiv.classList.add("incorrectTxt");
 }
-
 
 function clearErrors() {
-    errorMessage.textContent = "";
-    const inputs = document.querySelectorAll("form div");
-    inputs.forEach(div => div.classList.remove('incorrectTxt'));
+	errorMessage.textContent = "";
+	const inputs = document.querySelectorAll("form div");
+	inputs.forEach((div) => div.classList.remove("incorrectTxt"));
 }
-
-
-
-

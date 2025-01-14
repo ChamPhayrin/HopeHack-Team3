@@ -1,0 +1,241 @@
+#ai-container{
+  border-radius: 2px;
+}
+#aiornot-container {
+  height: auto;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#ai-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 90%;
+}
+#form-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#form-left h1 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+#image-container {
+  width: 70%;
+  max-height: 300px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #ececec;
+  border-radius: 2px;
+}
+#uploadedImage {
+  width: 70%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+#form-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#form-right h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #555;
+  font-weight: 500;
+}
+#form-right input {
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease;
+}
+#form-right input:focus {
+  border-color: #739596;
+  outline: none;
+}
+.mainBtn {
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  padding: 0.8rem 1.2rem;
+  background-color: #739596;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+}
+.mainBtn:hover,
+.mainBtn:focus {
+  background-color: #3d3d3d;
+  outline: none;
+}
+#aiProbability {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 2px;
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+@media screen and (max-width: 1024px) {
+  #aiornot-container {
+    margin: 3rem auto;
+    padding: 1.5rem;
+  }
+  #form-left h1 {
+    font-size: 1.8rem;
+  }
+  #form-right h3 {
+    font-size: 1.1rem;
+  }
+  #ai-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 768px) {
+  #aiornot-container {
+    margin: 0 0 4rem 0;
+  }
+  #ai-form {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  #form-left h1 {
+    font-size: 1.5rem;
+  }
+  #form-right h3 {
+    font-size: 1rem;
+  }
+  #uploadedImage {
+    max-width: 80%;
+  }
+  .mainBtn {
+    width: auto;
+  }
+  #image-container {
+    max-height: 250px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #form-left h1 {
+    font-size: 1.3rem;
+  }
+  #form-right h3 {
+    font-size: 0.9rem;
+  }
+  .mainBtn {
+    padding: 0.8rem;
+  }
+  #uploadedImage {
+    max-width: 90%;
+  }
+}
+#aiResult {
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 80%;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 2px;
+}
+#aiResult p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+#aiResult a {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: #3d3d3d;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+#aiResult a:hover {
+  background-color: #444;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+#aiResult a:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+@media screen and (max-width: 320px) {
+  #aiornot-container {
+    margin: 0 0 2rem 0;
+    padding: 1rem;
+  }
+  #ai-form {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  #form-left h1 {
+    font-size: 1.2rem;
+  }
+  #form-right h3 {
+    font-size: 1rem;
+  }
+  #uploadedImage {
+    max-width: 50%;
+  }
+  .mainBtn {
+    padding: 0.6rem 1rem;
+    max-width: 100%;
+  }
+  #aiProbability {
+    font-size: 1rem;
+    padding: 8px;
+  }
+  #aiResult {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+  #aiResult a {
+    font-size: 0.85rem;
+  }
+  .text-row .text-row-items {
+    margin-top: 3rem;
+  }
+  .grid-section .grid-container .grid-item img {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -40,7 +40,7 @@ function fetchArtworks(searchValue, cardContainer, searchTitle, error) {
 // Function to handle displaying artwork results
 function displayResults(artworks, cardContainer, searchTitle, error, searchValue) {
   error.classList.add('hidden');  // Hide error message (or loading animation) after fetching
-  searchTitle.innerHTML = searchValue.toUpperCase();
+  searchTitle.innerHTML = `Search for: ${searchValue.toUpperCase()}`;
   cardContainer.classList.remove('hidden');
   cardContainer.innerHTML = '';
 
@@ -82,6 +82,19 @@ searchForm.addEventListener('submit', (e) => {
   if (searchValue.length === 0) {
     showError(error, cardContainer, searchTitle, 'Please enter a search term');
     return;
+  }
+
+  if(localStorage.getItem('user_id')){
+    
+    fetch('/saveSearch', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        user_id: `${localStorage.getItem('user_id')}`,
+        search_query: searchValue
+      })
+    })
+
   }
 
   // Check for invalid search term

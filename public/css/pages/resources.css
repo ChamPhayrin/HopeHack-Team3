@@ -1,10 +1,14 @@
-/* Resets all elements */
 
-body {
+* {
   padding: 0;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
@@ -36,6 +40,10 @@ a {
 /* Grows the line to the full width of the community link that you hover over */
 .community-connect:hover::after {
   width: 100%;
+}
+
+header {
+  background-image: url("https://img.freepik.com/free-photo/sun-god-depicted-as-powerful-man-renaissance-setting_23-2151296075.jpg") !important;
 }
 
 h2 {
@@ -152,6 +160,8 @@ p {
 .text-row {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  margin: 0 0 2rem 0;
 }
 
 .text-row .text-row-items {
@@ -161,6 +171,10 @@ p {
   gap: 16px;
 
   flex-wrap: wrap;
+}
+
+.text-row-items{
+  margin-top: 5rem;
 }
 
 .text-row .text-row-items p {
@@ -288,7 +302,7 @@ main {
 .boxes {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: auto;
   height: 25rem;
   padding: 3rem;
   position: relative;
@@ -300,12 +314,11 @@ main {
 }
 
 .box1 {
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   background-image: url("https://tourismmedia.italia.it/is/image/mitur/20210318152840-cop-1?wid=1080&hei=660&fit=constrain,1&fmt=webp");
   background-position: center;
   background-repeat: no-repeat;
-  margin: 5rem 7rem;
 }
 
 .inner-box {
@@ -453,7 +466,7 @@ main {
 
   /* Adjust content boxes */
   .boxes {
-    width: 100%;
+    width: auto;
     height: auto;
     padding: 1rem;
   }
@@ -504,11 +517,18 @@ main {
     width: 75%;
   }
 
-  /* Adjust content boxes */
-  .boxes {
-    width: 75%;
-    padding: 2rem;
+  .nav-text h1 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
   }
+
+  .nav-text button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+
 
   .inner-box {
     width: 90%;
@@ -543,9 +563,7 @@ main {
     height: auto;
   }
 
-  .content1 {
-    width: 60%;
-  }
+
 
   /* Adjust content boxes */
   .boxes {
@@ -574,9 +592,10 @@ main {
 /* Large Devices (Above 1024px) */
 @media (min-width: 1025px) {
   .boxes {
-    width: 60%;
-    height: auto;
     padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .inner-box {
