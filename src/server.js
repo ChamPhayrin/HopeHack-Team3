@@ -272,8 +272,8 @@ app.post('/aiOrNot', async (req, res) => {
 
   const filePath = path.join(publicDirectory, 'userImages', image.name);
 
-	if (!fs.existsSync(dirPath)) {
-		fs.mkdirSync(dirPath, { recursive: true });
+	if (!fs.existsSync(filePath)) {
+		fs.mkdirSync(filePath, { recursive: true });
 		console.log('Created directory:', dirPath);
 	}
 
