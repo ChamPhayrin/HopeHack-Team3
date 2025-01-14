@@ -270,7 +270,16 @@ app.post('/aiOrNot', async (req, res) => {
     return res.status(400).send({ error: 'Invalid file type, only images allowed' });
   }
 
-  const filePath = path.join(publicDirectory, 'userImages', image.name);
+	const dirPath = path.join(publicDirectory, 'userImages');
+
+	const uniqueFileName = `${Date.now()}-${image.name}`;
+
+  const filePath = path.join(dirPath, uniqueFileName);
+
+	if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+    console.log('Created directory:', dirPath);
+  }
 
 	if (!fs.existsSync(filePath)) {
 		fs.mkdirSync(filePath, { recursive: true });
@@ -278,6 +287,10 @@ app.post('/aiOrNot', async (req, res) => {
 	}
 
   try {
+		const stat = fs.statSync(filePath);
+    if (stat.isDirectory()) {
+      return res.status(400).send({ error: 'A directory with this name already exists.' });
+    }
     // Move the uploaded file to the desired location
     await image.mv(filePath);
 
