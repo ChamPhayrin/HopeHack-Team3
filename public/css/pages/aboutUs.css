@@ -5,6 +5,7 @@ body {
 }
 header {
   background-image: url("https://www.theworldbucketlist.com/wp-content/uploads/2021/10/the-scream-1024x683.jpg") !important;
+  background-position: right 35% bottom 65%;
 }
 
 /* About Us Content */

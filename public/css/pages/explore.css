@@ -8,6 +8,7 @@
 
 header {
   background-image: url("/img/exploreBanner.avif") !important;
+  background-position: center;
 }
 
 /* CARD */

@@ -1,4 +1,3 @@
-
 * {
   padding: 0;
   margin: 0;
@@ -16,7 +15,6 @@ a {
   color: #3d3d3d;
 }
 
-/* The community links at the bottom of my page  */
 .community-connect {
   font-size: 30px;
   margin: 0;
@@ -25,7 +23,6 @@ a {
   position: relative;
 }
 
-/* The line that appears when you hover over my community links  */
 .community-connect::after {
   content: "";
   position: absolute;
@@ -37,20 +34,13 @@ a {
   transition: width 0.3s ease;
 }
 
-/* Grows the line to the full width of the community link that you hover over */
 .community-connect:hover::after {
   width: 100%;
 }
 
 header {
   background-image: url("https://img.freepik.com/free-photo/sun-god-depicted-as-powerful-man-renaissance-setting_23-2151296075.jpg") !important;
-}
-
-h2 {
-  font-family: "Arial", sans-serif;
-  margin: 40px;
-  text-align: center;
-  font-size: 35px;
+  background-position:initial;
 }
 
 .connect-h2 {
@@ -60,7 +50,6 @@ h2 {
   color: white;
 }
 
-/* The class thats connected to my Learning tool names */
 .tool-names {
   font-size: 30px;
   font-weight: 900;
@@ -71,7 +60,6 @@ p {
   font-size: 22px;
 }
 
-/* The quote at the body fo my page */
 .para-quote {
   text-align: center;
   margin: 15px;
@@ -79,7 +67,6 @@ p {
   color: white;
 }
 
-/* The p element at the top of my page */
 .title-para {
   text-align: center;
   font-size: 35px;
@@ -87,7 +74,6 @@ p {
   margin-top: 60px;
 }
 
-/* The div that holds my paragraph and image at the top of my page together */
 .image-card {
   display: flex;
   justify-content: space-between;
@@ -103,13 +89,9 @@ p {
   flex-wrap: wrap;
 }
 
-/* The first section on my page */
 .section-title {
   text-align: center;
   margin-bottom: 16px;
-}
-
-.section-title {
   font-size: 2rem;
   color: #3d3d3d;
 }
@@ -130,8 +112,7 @@ p {
   border-radius: 2px;
   margin-right: 20px;
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .content1 {
@@ -145,8 +126,7 @@ p {
   width: 75%;
   margin-top: 4rem;
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .allContent {
@@ -169,11 +149,10 @@ p {
   justify-content: space-around;
   align-items: center;
   gap: 16px;
-
   flex-wrap: wrap;
 }
 
-.text-row-items{
+.text-row-items {
   margin-top: 5rem;
 }
 
@@ -199,8 +178,7 @@ p {
 
 .grid-container img:hover {
   transform: translateY(-10px);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .grid-section {
@@ -230,10 +208,10 @@ p {
   height: 60%;
   margin-bottom: 50px;
   object-fit: cover;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 2px;
 }
+
 /* Tablet and smaller devices */
 @media (max-width: 1024px) {
   .image-card {
@@ -249,48 +227,12 @@ p {
   .grid-section .grid-container .grid-item {
     margin: 8px;
   }
-}
 
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.modal button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #333;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.modal button a {
-  width: 100%;
-}
-
-.modal button:hover {
-  background-color: #444;
+  .grid-section .grid-container .grid-item img {
+    width: 50%;
+    margin: 0;
+    height: auto;
+  }
 }
 
 main {
@@ -333,7 +275,6 @@ main {
   background-color: #3d3d3dbb; /* Darker background for contrast */
   color: white;
   text-shadow: 0px 1px 2px rgb(19, 12, 12);
-
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Light shadow for elevation */
   transition: all 0.3s ease;
   text-align: center;
@@ -407,13 +348,12 @@ main {
   position: relative;
 }
 
-/* Add the line effect to the entire info-text container */
 .info-text a::after {
   content: "";
   position: absolute;
   bottom: -5px; /* Adjust the distance of the underline from the text */
   left: 0;
-  width: 100%; /*Make it span the full width*/
+  width: 100%; /* Make it span the full width */
   height: 2px; /* Thickness of the underline */
   background-color: white; /* Color of the underline */
   transform: scaleX(0); /* Start with no width */
@@ -429,8 +369,6 @@ main {
 /* Mobile Phones */
 /* Small Devices (480px and below) */
 @media (max-width: 480px) {
-  /* General adjustments for small devices */
-
   .content1 {
     flex-direction: column;
     width: 100%; /* Full width on smaller screens */
@@ -464,7 +402,6 @@ main {
     height: auto;
   }
 
-  /* Adjust content boxes */
   .boxes {
     width: auto;
     height: auto;
@@ -528,8 +465,6 @@ main {
     padding: 12px;
   }
 
-
-
   .inner-box {
     width: 90%;
     height: auto;
@@ -563,9 +498,6 @@ main {
     height: auto;
   }
 
-
-
-  /* Adjust content boxes */
   .boxes {
     width: 80%;
     height: auto;
@@ -580,12 +512,6 @@ main {
 
   .inner-box p {
     font-size: 1.15rem;
-  }
-
-  .footer-links {
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
   }
 }
 
@@ -606,10 +532,5 @@ main {
 
   .inner-box p {
     font-size: 1.2rem;
-  }
-
-  .footer-links {
-    gap: 15px;
-    justify-content: space-between;
   }
 }

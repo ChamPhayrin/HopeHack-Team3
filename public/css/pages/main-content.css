@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+header{
+  background-position: top;
+}
+
 .boxes {
   display: flex;
   flex-direction: column;
@@ -21,8 +25,8 @@
 .box1 {
   justify-content: flex-end;
   align-items: flex-end;
-  background-image: url("/img/HERO_PETER_DOIG_4.jpg");
-
+  background-image: url("/images/swinging2.jpg");
+  background-position: top;
   margin: 5rem 7rem;
 }
 
