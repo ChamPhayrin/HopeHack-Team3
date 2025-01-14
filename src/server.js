@@ -245,6 +245,16 @@ app.get("/getSearch", (req, res) =>{
 app.post('/contactMessage', (req, res) =>{
 	const {user_id, full_name, email, message} = req.body
 
+	if(user_id){
+		app.get('/getFullName', (req, res) =>{
+			const {user_id,  first_name,  last_name} = req.body  
+			const selectIdQ = `SELECT first_name, last_name FROM users WHERE user_id = ${user_id}`
+			connection.query(selectIdQ, (err, result)  =>{
+				full_name = first_name + ' ' + last_name
+			})
+		})
+	}
+
 	const insertQ = "INSERT INTO contact_us (user_id, full_name, email, message) VALUES (?, ?, ?, ?)";
 
 	const values = [user_id, full_name, email, message];
@@ -280,7 +290,6 @@ app.post('/aiOrNot', async (req, res) => {
     console.log('Created directory:', dirPath);
   }
 
-  // Generate a unique filename using a timestamp and random string
   const uniqueFileName = `${Date.now()}-${Math.random().toString(36).substring(2, 15)}-${image.name}`;
   const filePath = path.join(dirPath, uniqueFileName);
   console.log('File path to save image:', filePath);  // Debugging line

@@ -30,7 +30,7 @@ async function loadMessages() {
           div.classList.add('message-item');
           
 
-          const fullName = message.full_name || 'Anonymous';
+          const fullName = message.full_name || message. ||'Anonymous' ;
           const email = message.email || '#'; 
 
           div.innerHTML = `
