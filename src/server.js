@@ -274,7 +274,7 @@ app.post('/aiOrNot', async (req, res) => {
 
 	if (!fs.existsSync(filePath)) {
 		fs.mkdirSync(filePath, { recursive: true });
-		console.log('Created directory:', dirPath);
+		console.log('Created directory:', filePath);
 	}
 
   try {
