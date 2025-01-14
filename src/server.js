@@ -270,7 +270,7 @@ app.post('/aiOrNot', async (req, res) => {
     return res.status(400).send({ error: 'Invalid file type, only images allowed' });
   }
 
-  const filePath = path.join(publicDirectory, 'userImages', image.name);
+  const filePath = `../public/userImages/${image.name}`;
 
   try {
     // Move the uploaded file to the desired location
