@@ -8,7 +8,7 @@ Muse is a website dedicated to raising awareness about the growing impact of AI 
   - Users can sign up, log in, and engage with the community by leaving comments for admins.
   
 - **Admin Management**:  
-  - Admins have access to an exclusive admin page for reviewing and emailing comments users/guest makes.
+  - Admins have access to an exclusive admin page for reviewing and emailing comments made by users and guests. This ensures that feedback is properly managed and communication with the community is streamlined.
   
 - **Recent Searches**:  
   - Muse allows users to view and revisit their recent searches, offering quick access to previously explored topics and artworks.
@@ -64,13 +64,13 @@ Install my-project with npm
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://link-to-project](https://github.com/ChamPhayrin/HopeHack-Team3
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd HopeHack-Team3
 ```
 
 Install dependencies
