@@ -270,21 +270,7 @@ app.post('/aiOrNot', async (req, res) => {
     return res.status(400).send({ error: 'Invalid file type, only images allowed' });
   }
 
-	const dirPath = path.join(publicDirectory, 'userImages');
-
-	const uniqueFileName = `${Date.now()}-${image.name}`;
-
-  const filePath = path.join(dirPath, uniqueFileName);
-
-	if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath, { recursive: true });
-    console.log('Created directory:', dirPath);
-  }
-
-	if (!fs.existsSync(filePath)) {
-		fs.mkdirSync(filePath, { recursive: true });
-		console.log('Created directory:', filePath);
-	}
+  const filePath = path.join(publicDirectory, 'userImages', image.name);
 
   try {
     // Move the uploaded file to the desired location
