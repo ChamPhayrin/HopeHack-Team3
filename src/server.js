@@ -287,10 +287,6 @@ app.post('/aiOrNot', async (req, res) => {
 	}
 
   try {
-		const stat = fs.statSync(filePath);
-    if (stat.isDirectory()) {
-      return res.status(400).send({ error: 'A directory with this name already exists.' });
-    }
     // Move the uploaded file to the desired location
     await image.mv(filePath);
 
