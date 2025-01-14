@@ -5,18 +5,17 @@ Muse is a website dedicated to raising awareness about the growing impact of AI 
 ## Features
 
 - **User Interaction**:  
-  - Users can sign up, log in, and engage with the community by leaving comments on art pieces and discussions.
+  - Users can sign up, log in, and engage with the community by leaving comments for admins.
   
 - **Admin Management**:  
-  - Admins have access to an exclusive admin page for managing and moderating site content, ensuring it aligns with the platform's mission of promoting awareness about AI’s impact on art.
-  - Admins can also review and manage comments left on the message board to maintain a respectful and productive environment.
+  - Admins have access to an exclusive admin page for reviewing and emailing comments users/guest makes.
   
 - **Recent Searches**:  
   - Muse allows users to view and revisit their recent searches, offering quick access to previously explored topics and artworks.
 
 - **Two Powerful APIs**:  
-  - **Art Discovery API**: Allows users to find art related to specific topics or themes.
-  - **AI Detection API**: Enables users to check if an image has been AI-generated, helping distinguish between human and machine-made creations.
+  - **[Art Discovery API](https://api.artic.edu/docs/#website)**: Allows users to find art related to specific topics or themes.
+  - **[AI Detection API](https://sightengine.com/ai-or-not?utm_source=chatgpt.com)**: Enables users to check if an image has been AI-generated, helping distinguish between human and machine-made creations.
 
 ## Technologies Used
 
