@@ -222,10 +222,6 @@ header {
 
 /* For Small Devices (Phones and smaller tablets) */
 @media (max-width: 768px) {
-  header {
-    height: 150px;
-  }
-
   .abtUs-heading--mission {
     text-align: center;
   }

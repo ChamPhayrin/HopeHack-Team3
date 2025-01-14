@@ -96,10 +96,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+
   // Close the modal when you click on the background (outside the modal content)
   window.addEventListener("click", (event) => {
     if ([modal, profileModal].includes(event.target)) {
       event.target.style.display = "none";  // Hide modal
+
+  // Get modal and buttons
+  const modal = document.getElementById("profile-modal");
+  const profileIcon = document.getElementById("profile-icon");
+  const profileIconSide = document.getElementById("profile-icon-side");
+
+  // Open the modal when the profile icon is clicked
+  profileIcon.addEventListener("click", function () {
+    modal.style.display = "flex"; // Show the modal
+  });
+
+  profileIconSide.addEventListener("click", () => {
+    modal.style.display = "flex"; // Show the modal
+  });
+
+
     }
   });
 });
