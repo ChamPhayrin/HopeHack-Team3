@@ -17,6 +17,7 @@ header {
   padding: 3rem;
   height: 40vh;
   background-size: cover;
+  background-image: url("/images/june.jpg");
   background-repeat: no-repeat;
 }
 
