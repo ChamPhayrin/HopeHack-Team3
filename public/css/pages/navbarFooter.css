@@ -16,7 +16,6 @@ header {
   justify-content: space-around;
   padding: 3rem;
   height: 40vh;
-  background-image: url("/images/adam.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
